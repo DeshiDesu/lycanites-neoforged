@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:slime_ball",
+		"minecraft:poisonous_potato",
+		"lycanitesmobs:poisongland"
+	]
+}

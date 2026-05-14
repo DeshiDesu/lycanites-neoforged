@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "lycanitesmobs:ashenstonechiseled",
+    "count": 2
+  },
+  "pattern": [
+    "B ",
+    "B "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:ashenstone_slab",
+      "data": 0
+    }
+  }
+}

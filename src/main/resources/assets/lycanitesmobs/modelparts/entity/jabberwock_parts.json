@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "2.55",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight01",
+    "parent": "Body",
+    "centerX": "-0.264",
+    "centerY": "1.648",
+    "centerZ": "-0.133",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight02",
+    "parent": "LegRight01",
+    "centerX": "-0.301",
+    "centerY": "1.139",
+    "centerZ": "0.323",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight03",
+    "parent": "LegRight02",
+    "centerX": "-0.337",
+    "centerY": "0.836",
+    "centerZ": "-0.097",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmRight",
+    "parent": "Body",
+    "centerX": "-0.352",
+    "centerY": "2.55",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "2.8",
+    "centerZ": "0.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Mouth",
+    "parent": "Head",
+    "centerX": "0.0",
+    "centerY": "2.81",
+    "centerZ": "0.799",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmLeft",
+    "parent": "Body",
+    "centerX": "0.352",
+    "centerY": "2.55",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft01",
+    "parent": "Body",
+    "centerX": "0.264",
+    "centerY": "1.648",
+    "centerZ": "-0.133",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft02",
+    "parent": "LegLeft01",
+    "centerX": "0.301",
+    "centerY": "1.139",
+    "centerZ": "0.323",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft03",
+    "parent": "LegLeft02",
+    "centerX": "0.337",
+    "centerY": "0.836",
+    "centerZ": "-0.097",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

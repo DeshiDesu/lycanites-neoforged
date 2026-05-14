@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "lycanitesmobs:soul_contract",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "lycanitesmobs:soulgazer"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

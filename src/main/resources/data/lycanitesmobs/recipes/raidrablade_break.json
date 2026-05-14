@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:demonicblastcharge",
+    "count": 4
+  },
+  "ingredients": [
+	{
+      "item": "lycanitesmobs:equipmentpart_raidrablade"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

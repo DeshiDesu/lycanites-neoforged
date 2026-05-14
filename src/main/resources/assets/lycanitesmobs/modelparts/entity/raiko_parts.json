@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "1.5",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight",
+    "parent": "Body",
+    "centerX": "-0.2",
+    "centerY": "0.98",
+    "centerZ": "-0.39",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootRightClawBack",
+    "parent": "LegRight",
+    "centerX": "-0.275",
+    "centerY": "0.683",
+    "centerZ": "-0.134",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootRightClawRight",
+    "parent": "LegRight",
+    "centerX": "-0.171",
+    "centerY": "0.805",
+    "centerZ": "0.094",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootRightClawLeft",
+    "parent": "LegRight",
+    "centerX": "-0.394",
+    "centerY": "0.803",
+    "centerZ": "0.091",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight",
+    "parent": "Body",
+    "centerX": "-0.25",
+    "centerY": "1.5",
+    "centerZ": "0.55",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft",
+    "parent": "Body",
+    "centerX": "0.25",
+    "centerY": "1.5",
+    "centerZ": "0.55",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "1.5",
+    "centerZ": "0.91",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Mouth",
+    "parent": "Head",
+    "centerX": "0.0",
+    "centerY": "1.425",
+    "centerZ": "1.51",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft",
+    "parent": "Body",
+    "centerX": "0.2",
+    "centerY": "0.98",
+    "centerZ": "-0.39",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootLeftClawLeft",
+    "parent": "LegLeft",
+    "centerX": "0.394",
+    "centerY": "0.803",
+    "centerZ": "0.091",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootLeftClawRight",
+    "parent": "LegLeft",
+    "centerX": "0.171",
+    "centerY": "0.805",
+    "centerZ": "0.094",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FootLeftClawBack",
+    "parent": "LegLeft",
+    "centerX": "0.275",
+    "centerY": "0.683",
+    "centerZ": "-0.134",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

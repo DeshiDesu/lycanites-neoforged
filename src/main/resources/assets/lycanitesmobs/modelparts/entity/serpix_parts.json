@@ -1,0 +1,142 @@
+[
+  {
+    "name": "head",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "4.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "mouthleft",
+    "parent": "",
+    "centerX": "0.6",
+    "centerY": "0.5",
+    "centerZ": "4.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "mouthright",
+    "parent": "",
+    "centerX": "-0.6",
+    "centerY": "0.5",
+    "centerZ": "4.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "mouthbottom",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.2",
+    "centerZ": "4.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "3.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body01",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "2.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body02",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "1.4",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body03",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "0.5",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body04",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-0.4",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body05",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-1.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body06",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-2.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body07",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-3.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body08",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-4.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body09",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-4.9",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  }
+]

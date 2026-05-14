@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "lycanitesmobs:aberrantstone_slab",
+    "count": 6
+  },
+  "pattern": [
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:aberrantstone"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "behemophethand",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
+    "rotationY": "-0.0",
+    "rotationZ": "179.293"
+  },
+  {
+    "name": "TipA",
+    "parent": "behemophethand",
+    "centerX": "0.0",
+    "centerY": "0.06",
+    "centerZ": "0.45",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

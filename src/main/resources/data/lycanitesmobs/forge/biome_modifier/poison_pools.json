@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#lycanitesmobs:has_poison_pools",
+  "features": [
+    "lycanitesmobs:poison_lake",
+    "lycanitesmobs:poison_spring"
+  ],
+  "step": "lakes"
+}

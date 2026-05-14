@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/aberrantstonetile_slab" },
+        "type=top": { "model": "lycanitesmobs:block/aberrantstonetile_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/aberrantstonetile" }
+    }
+}

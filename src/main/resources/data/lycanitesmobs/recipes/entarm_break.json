@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:lifedraincharge",
+    "count": 4
+  },
+  "ingredients": [
+	{
+      "item": "lycanitesmobs:equipmentpart_entarm"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

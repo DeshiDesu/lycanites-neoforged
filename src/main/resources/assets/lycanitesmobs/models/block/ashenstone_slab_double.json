@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "lycanitesmobs:block/ashenstonepolished",
+        "side": "lycanitesmobs:block/ashenstoneslab"
+    }
+}

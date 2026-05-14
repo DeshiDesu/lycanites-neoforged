@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "lycanitesmobs:aberrantstonebrick_stairs",
+    "count": 8
+  },
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:aberrantstonebrick"
+    }
+  }
+}

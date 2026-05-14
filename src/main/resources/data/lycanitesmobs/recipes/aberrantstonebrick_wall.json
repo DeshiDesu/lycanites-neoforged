@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "lycanitesmobs:aberrantstonebrick_wall",
+    "count": 6
+  },
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:aberrantstonebrick"
+    }
+  }
+}

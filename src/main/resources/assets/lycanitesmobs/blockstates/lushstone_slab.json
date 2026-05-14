@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/lushstone_slab" },
+        "type=top": { "model": "lycanitesmobs:block/lushstone_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/lushstone_slab_double" }
+    }
+}

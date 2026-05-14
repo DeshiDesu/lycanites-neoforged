@@ -1,0 +1,18 @@
+{
+	"textureLayers": [
+		{
+			"name": "base",
+			"glow": true,
+			"targetParts": [
+				"base"
+			]
+		},
+		{
+			"name": "root",
+			"glow": false,
+			"targetParts": [
+				"root"
+			]
+		}
+	]
+}

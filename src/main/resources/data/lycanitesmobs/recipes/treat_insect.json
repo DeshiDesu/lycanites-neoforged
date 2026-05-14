@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "lycanitesmobs:treat_insect",
+    "count": 4
+  },
+  "pattern": [
+    " MM",
+    "BBM",
+    " MM"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "M": {
+      "tag": "lycanitesmobs:diet_fungivore"
+    }
+  }
+}

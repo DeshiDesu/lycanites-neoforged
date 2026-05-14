@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "lycanitesmobs:block/lushstonepillar" },
+        "axis=z": { "model": "lycanitesmobs:block/lushstonepillar", "x": 90 },
+        "axis=x": { "model": "lycanitesmobs:block/lushstonepillar", "x": 90, "y": 90 }
+    }
+}

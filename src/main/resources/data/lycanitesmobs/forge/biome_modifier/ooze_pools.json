@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#lycanitesmobs:has_ooze_pools",
+  "features": [
+    "lycanitesmobs:ooze_spring",
+    "lycanitesmobs:ooze_lake"
+  ],
+  "step": "lakes"
+}

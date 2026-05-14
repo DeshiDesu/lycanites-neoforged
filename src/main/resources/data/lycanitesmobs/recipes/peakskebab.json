@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "lycanitesmobs:peaks_kebab"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:melon"
+    },
+    {
+      "item": "lycanitesmobs:cooked_yale_meat"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

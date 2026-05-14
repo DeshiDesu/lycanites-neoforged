@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.524",
+    "centerZ": "0.193",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Mouth",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.398",
+    "centerZ": "0.103",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Tail01",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.373",
+    "centerZ": "-0.37",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Tail02",
+    "parent": "Tail01",
+    "centerX": "0.0",
+    "centerY": "0.245",
+    "centerZ": "-0.783",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Eye",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.682",
+    "centerZ": "0.615",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft",
+    "parent": "Body",
+    "centerX": "0.409",
+    "centerY": "0.285",
+    "centerZ": "-0.191",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft01",
+    "parent": "Body",
+    "centerX": "0.495",
+    "centerY": "0.549",
+    "centerZ": "0.161",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft02",
+    "parent": "WingLeft01",
+    "centerX": "1.677",
+    "centerY": "1.492",
+    "centerZ": "0.753",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight",
+    "parent": "Body",
+    "centerX": "-0.409",
+    "centerY": "0.285",
+    "centerZ": "-0.191",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight01",
+    "parent": "Body",
+    "centerX": "-0.495",
+    "centerY": "0.549",
+    "centerZ": "0.161",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight02",
+    "parent": "WingRight01",
+    "centerX": "-1.677",
+    "centerY": "1.492",
+    "centerZ": "0.753",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

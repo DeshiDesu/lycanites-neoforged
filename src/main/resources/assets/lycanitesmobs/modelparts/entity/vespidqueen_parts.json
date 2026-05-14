@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "-0.0",
+    "centerY": "1.101",
+    "centerZ": "0.373",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaLeftFront",
+    "parent": "Head",
+    "centerX": "0.095",
+    "centerY": "1.322",
+    "centerZ": "0.503",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftMiddle",
+    "parent": "Body",
+    "centerX": "0.254",
+    "centerY": "0.703",
+    "centerZ": "0.357",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeftBottom",
+    "parent": "Body",
+    "centerX": "0.188",
+    "centerY": "0.778",
+    "centerZ": "-0.13",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaLeftBack",
+    "parent": "Head",
+    "centerX": "0.134",
+    "centerY": "1.292",
+    "centerZ": "0.386",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftFront",
+    "parent": "Body",
+    "centerX": "0.191",
+    "centerY": "0.856",
+    "centerZ": "0.439",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftBack",
+    "parent": "Body",
+    "centerX": "0.196",
+    "centerY": "0.556",
+    "centerZ": "0.215",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaRightFront",
+    "parent": "Head",
+    "centerX": "-0.095",
+    "centerY": "1.322",
+    "centerZ": "0.503",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightMiddle",
+    "parent": "Body",
+    "centerX": "-0.254",
+    "centerY": "0.703",
+    "centerZ": "0.357",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaRightBack",
+    "parent": "Head",
+    "centerX": "-0.134",
+    "centerY": "1.292",
+    "centerZ": "0.386",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightFront",
+    "parent": "Body",
+    "centerX": "-0.191",
+    "centerY": "0.856",
+    "centerZ": "0.439",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightBack",
+    "parent": "Body",
+    "centerX": "-0.196",
+    "centerY": "0.556",
+    "centerZ": "0.215",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeftTop",
+    "parent": "Body",
+    "centerX": "0.147",
+    "centerY": "0.879",
+    "centerZ": "-0.044",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeftMiddle",
+    "parent": "Body",
+    "centerX": "0.186",
+    "centerY": "0.801",
+    "centerZ": "-0.135",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRightBottom",
+    "parent": "Body",
+    "centerX": "-0.188",
+    "centerY": "0.778",
+    "centerZ": "-0.13",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRightTop",
+    "parent": "Body",
+    "centerX": "-0.147",
+    "centerY": "0.879",
+    "centerZ": "-0.044",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRightMiddle",
+    "parent": "Body",
+    "centerX": "-0.186",
+    "centerY": "0.801",
+    "centerZ": "-0.135",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

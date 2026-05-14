@@ -1,0 +1,25 @@
+{
+  "itemName": "woodenguard",
+  "loadDefault": true,
+  "slotType": "head",
+  "dropMobId": "",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 1,
+  "features": [
+    {
+      "featureType": "slot",
+      "slotType": "blade"
+    }
+  ],
+  "equipmentNames": [
+    "Oaken",
+    "Steadfast",
+    "Simple",
+    "Honest",
+    "Stalwart",
+    "Humble",
+    "Stout",
+    "Hardy"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:campfire_cooking",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_yale_meat"
+	},
+	"result": "lycanitesmobs:cooked_yale_meat",
+	"experience": 0.35,
+	"cookingtime": 600
+}

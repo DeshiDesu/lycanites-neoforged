@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "lycanitesmobs:ashenstonetile",
+    "count": 4
+  },
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:ashenstonepolished"
+    }
+  }
+}

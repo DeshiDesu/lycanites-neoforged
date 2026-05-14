@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Hood",
+    "parent": "",
+    "centerX": "0.0000",
+    "centerY": "0.0000",
+    "centerZ": "0.0000"
+  },
+  {
+    "name": "WispRing1",
+    "parent": "Hood",
+    "centerX": "0.0000",
+    "centerY": "0.0000",
+    "centerZ": "0.0000"
+  },
+  {
+    "name": "WispRing2",
+    "parent": "Hood",
+    "centerX": "0.0000",
+    "centerY": "0.0000",
+    "centerZ": "0.0000"
+  },
+  {
+    "name": "CapeStrip",
+    "parent": "Hood",
+    "centerX": "0.0000",
+    "centerY": "0.0000",
+    "centerZ": "0.0000"
+  }
+]

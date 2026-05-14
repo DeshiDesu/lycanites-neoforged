@@ -1,0 +1,26 @@
+{
+	"textureLayers": [
+		{
+			"name": "base",
+			"scrollSpeedX": 8
+		}
+	],
+	"partAnimations": [
+		{
+			"targetParts": [
+				"base"
+			],
+			"loopType": "reverse",
+			"duration": 0.5,
+			"rotateX": -1
+		},
+		{
+			"targetParts": [
+				"wing03"
+			],
+			"loopType": "reverse",
+			"duration": 0.5,
+			"rotateX": -1
+		}
+]
+}

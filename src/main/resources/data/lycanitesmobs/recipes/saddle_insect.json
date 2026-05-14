@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "lycanitesmobs:saddle_insect",
+    "count": 1
+  },
+  "pattern": [
+    "MMM",
+    "OSO",
+    "NNN"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "M": {
+      "item": "minecraft:string"
+    },
+    "N": {
+      "item": "minecraft:slime_ball"
+    },
+    "O": {
+      "item": "minecraft:spider_eye"
+    }
+  }
+}

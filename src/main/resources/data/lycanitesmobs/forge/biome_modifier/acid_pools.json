@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#lycanitesmobs:has_acid_pools",
+  "features": [
+    "lycanitesmobs:acid_lake",
+    "lycanitesmobs:acid_spring"
+  ],
+  "step": "lakes"
+}

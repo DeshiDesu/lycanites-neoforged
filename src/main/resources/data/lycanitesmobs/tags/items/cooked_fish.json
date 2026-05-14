@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:cooked_cod",
+		"minecraft:cooked_salmon",
+		"lycanitesmobs:cooked_silex_meat",
+		"lycanitesmobs:cooked_ika_meat",
+		"lycanitesmobs:cooked_cephignis_meat"
+	]
+}

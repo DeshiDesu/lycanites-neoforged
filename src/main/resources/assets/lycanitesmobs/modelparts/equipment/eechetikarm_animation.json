@@ -1,0 +1,13 @@
+{
+	"partAnimations": [
+		{
+			"targetParts": [
+				"base",
+				"hand"
+			],
+			"loopType": "reverse",
+			"duration": 1,
+			"rotateX": -1
+		}
+]
+}

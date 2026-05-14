@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:venomshotcharge",
+    "count": 4
+  },
+  "ingredients": [
+	{
+      "item": "lycanitesmobs:equipmentpart_remobrawing"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

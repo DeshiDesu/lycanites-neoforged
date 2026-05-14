@@ -1,0 +1,25 @@
+{
+  "itemName": "goldscepterhead",
+  "loadDefault": true,
+  "slotType": "head",
+  "dropMobId": "",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 1,
+  "features": [
+    {
+      "featureType": "slot",
+      "slotType": "jewel"
+    }
+  ],
+  "equipmentNames": [
+    "Sovereign's",
+    "Imperial",
+    "Regal",
+    "Majestic",
+    "Crowned",
+    "Royal",
+    "Lordly",
+    "Exalted"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "name": "fear_big",
+  "version": 1,
+  "parts": [
+    {
+      "id": "2782c868-b12a-4eaf-a49d-7306e8ccde11",
+      "name": "Hood",
+      "meshableId": "lycanitesmobs:hood_grid",
+      "properties": {
+        "visible": false,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0,
+        "translateX": 0.0,
+        "translateY": 5.606611,
+        "translateZ": 0.0,
+        "rotateX": 0.0,
+        "rotateY": 0.0,
+        "rotateZ": 0.0,
+        "scaleX": 8.0,
+        "scaleY": 8.0,
+        "scaleZ": 8.0
+      },
+      "params": {
+        "topY": 0.5,
+        "bottomY": -0.45,
+        "radiusX": 0.55,
+        "radiusZ": 0.6,
+        "openMin": 6.0,
+        "openMax": 75.0,
+        "archPower": 0.5,
+        "peakPower": 0.55,
+        "rows": 8,
+        "cols": 14,
+        "lean": 0.12,
+        "r": 0.05,
+        "g": 0.05,
+        "b": 0.08
+      }
+    },
+    {
+      "id": "ce49e915-bfc7-45e8-8e36-32d194ec9021",
+      "name": "WispRing1",
+      "parentId": "2782c868-b12a-4eaf-a49d-7306e8ccde11",
+      "meshableId": "lycanitesmobs:wisp_ring",
+      "properties": {
+        "visible": true,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0,
+        "translateX": 0.0,
+        "translateY": 0.0,
+        "translateZ": 0.0,
+        "rotateX": 0.0,
+        "rotateY": 0.0,
+        "rotateZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "params": {
+        "count": 8,
+        "radius": 0.12,
+        "yOffset": -0.15,
+        "segments": 13,
+        "segLen": 0.15891893,
+        "wStart": 0.14,
+        "wEnd": 0.6290488,
+        "taperIn": 1.0,
+        "r": 0.08,
+        "g": 0.08,
+        "b": 0.14
+      }
+    },
+    {
+      "id": "901112b9-464b-486e-82f3-2e3b9623b5cb",
+      "name": "WispRing2",
+      "parentId": "2782c868-b12a-4eaf-a49d-7306e8ccde11",
+      "meshableId": "lycanitesmobs:wisp_ring",
+      "properties": {
+        "visible": true,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0,
+        "translateX": 0.0,
+        "translateY": -1.237736,
+        "translateZ": 0.0,
+        "rotateX": 0.0,
+        "rotateY": 0.0,
+        "rotateZ": 0.0,
+        "scaleX": 1.02067,
+        "scaleY": 0.66214955,
+        "scaleZ": 1.0684729
+      },
+      "params": {
+        "count": 8,
+        "radius": 0.22,
+        "yOffset": -0.3,
+        "segments": 10,
+        "segLen": 0.24,
+        "wStart": 0.18,
+        "wEnd": 0.04,
+        "taperIn": 0.25,
+        "r": 0.08,
+        "g": 0.08,
+        "b": 0.14
+      }
+    },
+    {
+      "id": "d4592b37-b1a9-4abe-87f9-0d1395e81105",
+      "name": "CapeStrip",
+      "parentId": "2782c868-b12a-4eaf-a49d-7306e8ccde11",
+      "meshableId": "lycanitesmobs:strip_chain",
+      "properties": {
+        "visible": true,
+        "pivotX": 0.0,
+        "pivotY": 0.0,
+        "pivotZ": 0.0,
+        "translateX": 0.0,
+        "translateY": -0.45,
+        "translateZ": 0.0,
+        "rotateX": 0.0,
+        "rotateY": 0.0,
+        "rotateZ": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "scaleZ": 1.0
+      },
+      "params": {
+        "segments": 20,
+        "segLen": 0.28,
+        "wStart": 0.35,
+        "wEnd": 0.05,
+        "taperIn": 0.3,
+        "alphaS": 0.8,
+        "alphaE": 0.0,
+        "r": 0.08,
+        "g": 0.2192256,
+        "b": 0.14
+      }
+    }
+  ],
+  "textureLayers": [],
+  "partAnimations": []
+}

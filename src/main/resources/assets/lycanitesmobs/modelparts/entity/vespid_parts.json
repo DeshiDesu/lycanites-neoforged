@@ -1,0 +1,122 @@
+[
+  {
+    "name": "LegLeftBack",
+    "parent": "Body",
+    "centerX": "0.21",
+    "centerY": "0.9",
+    "centerZ": "0.2",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "1.1",
+    "centerZ": "0.7",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "1.0",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaLeft",
+    "parent": "Head",
+    "centerX": "0.09",
+    "centerY": "1.18",
+    "centerZ": "0.86",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftMiddle",
+    "parent": "Body",
+    "centerX": "0.19",
+    "centerY": "0.91",
+    "centerZ": "0.354",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftFront",
+    "parent": "Body",
+    "centerX": "0.16",
+    "centerY": "0.9",
+    "centerZ": "0.496",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightBack",
+    "parent": "Body",
+    "centerX": "-0.21",
+    "centerY": "0.9",
+    "centerZ": "0.2",
+    "rotationX": "0.0",
+    "rotationY": "179.928",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight",
+    "parent": "Body",
+    "centerX": "-0.188",
+    "centerY": "1.278",
+    "centerZ": "0.129",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "AntennaRight",
+    "parent": "Head",
+    "centerX": "-0.09",
+    "centerY": "1.18",
+    "centerZ": "0.86",
+    "rotationX": "0.0",
+    "rotationY": "179.928",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightMiddle",
+    "parent": "Body",
+    "centerX": "-0.19",
+    "centerY": "0.91",
+    "centerZ": "0.354",
+    "rotationX": "0.0",
+    "rotationY": "179.928",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightFront",
+    "parent": "Body",
+    "centerX": "-0.16",
+    "centerY": "0.9",
+    "centerZ": "0.496",
+    "rotationX": "0.0",
+    "rotationY": "179.928",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft",
+    "parent": "Body",
+    "centerX": "0.188",
+    "centerY": "1.278",
+    "centerZ": "0.129",
+    "rotationX": "0.0",
+    "rotationY": "179.928",
+    "rotationZ": "-0.0"
+  }
+]

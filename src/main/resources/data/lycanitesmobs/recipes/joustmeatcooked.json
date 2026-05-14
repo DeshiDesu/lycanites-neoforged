@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "lycanitesmobs:cooked_jouste_meat"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:amber_cake"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

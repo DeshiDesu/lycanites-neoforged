@@ -1,0 +1,8 @@
+{
+  "feature": "lycanitesmobs:chunkspawn",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    }
+  ]
+}

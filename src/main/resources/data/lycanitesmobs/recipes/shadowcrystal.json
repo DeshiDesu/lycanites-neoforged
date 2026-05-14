@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "lycanitesmobs:shadowcrystal"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:shadowstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

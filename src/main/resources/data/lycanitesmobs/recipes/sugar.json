@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "minecraft:sugar",
+    "count": 1
+  },
+  "pattern": [
+    "VVV",
+    "VVV",
+    "VVV"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "V": {
+      "item": "lycanitesmobs:veswax"
+    }
+  }
+}

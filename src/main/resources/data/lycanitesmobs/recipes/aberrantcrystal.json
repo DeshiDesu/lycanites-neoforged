@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "lycanitesmobs:aberrantcrystal"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:aberrantstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

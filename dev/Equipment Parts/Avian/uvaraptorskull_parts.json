@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Base",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "-0.0",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "TipB",
+    "parent": "Base",
+    "centerX": "-0.078",
+    "centerY": "-0.009",
+    "centerZ": "0.379",
+    "rotationX": "0.0",
+    "rotationY": "89.964",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "TipC",
+    "parent": "Base",
+    "centerX": "0.078",
+    "centerY": "-0.009",
+    "centerZ": "0.379",
+    "rotationX": "0.0",
+    "rotationY": "-89.964",
+    "rotationZ": "-179.928"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "lycanitesmobs:aberrantstonepolished",
+    "count": 2
+  },
+  "pattern": [
+    "BB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "lycanitesmobs:aberrantstone"
+    }
+  }
+}

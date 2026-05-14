@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.57",
+    "centerZ": "0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight",
+    "parent": "Body",
+    "centerX": "-0.06",
+    "centerY": "1.1",
+    "centerZ": "-0.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmRight",
+    "parent": "Body",
+    "centerX": "-0.2",
+    "centerY": "0.97",
+    "centerZ": "-0.02",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerRight01",
+    "parent": "ArmRight",
+    "centerX": "-0.42",
+    "centerY": "0.496",
+    "centerZ": "0.222",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerRight03",
+    "parent": "ArmRight",
+    "centerX": "-0.378",
+    "centerY": "0.574",
+    "centerZ": "0.277",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerRight02",
+    "parent": "ArmRight",
+    "centerX": "-0.417",
+    "centerY": "0.54",
+    "centerZ": "0.252",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight",
+    "parent": "Body",
+    "centerX": "-0.13",
+    "centerY": "0.52",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Tail",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.55",
+    "centerZ": "-0.15",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft",
+    "parent": "Body",
+    "centerX": "0.13",
+    "centerY": "0.52",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "1.07",
+    "centerZ": "0.13",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft",
+    "parent": "Body",
+    "centerX": "0.06",
+    "centerY": "1.1",
+    "centerZ": "-0.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmLeft",
+    "parent": "Body",
+    "centerX": "0.2",
+    "centerY": "0.97",
+    "centerZ": "-0.02",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerLeft03",
+    "parent": "ArmLeft",
+    "centerX": "0.378",
+    "centerY": "0.574",
+    "centerZ": "0.277",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerLeft01",
+    "parent": "ArmLeft",
+    "centerX": "0.42",
+    "centerY": "0.496",
+    "centerZ": "0.222",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "FingerLeft02",
+    "parent": "ArmLeft",
+    "centerX": "0.417",
+    "centerY": "0.54",
+    "centerZ": "0.252",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

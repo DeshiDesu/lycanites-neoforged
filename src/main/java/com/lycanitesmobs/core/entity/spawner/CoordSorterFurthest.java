@@ -1,0 +1,36 @@
+package com.lycanitesmobs.core.entity.spawner;
+
+
+import net.minecraft.core.BlockPos;
+
+import java.util.Comparator;
+
+public class CoordSorterFurthest implements Comparator {
+    public BlockPos coord;
+
+    // ==================================================
+  	//                    Constructor
+  	// ==================================================
+    public CoordSorterFurthest(BlockPos coord) {
+        this.coord = coord;
+    }
+    
+    
+    // ==================================================
+  	//                     Compare
+  	// ==================================================
+	@Override
+	public int compare(Object targetA, Object targetB) {
+		double distanceA = this.getDistanceSqCoord((BlockPos)targetA);
+        double distanceB = this.getDistanceSqCoord((BlockPos)targetB);
+        return distanceA > distanceB ? -1 : (distanceA < distanceB ? 1 : 0);
+	}
+	
+	
+    // ==================================================
+  	//                  Get Distance
+  	// ==================================================
+    public double getDistanceSqCoord(BlockPos targetCoord) {
+        return this.coord.distSqr(targetCoord);
+    }
+}

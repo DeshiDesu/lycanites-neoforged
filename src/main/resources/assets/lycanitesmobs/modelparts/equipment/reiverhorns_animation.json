@@ -1,0 +1,31 @@
+{
+	"textureLayers": [
+		{
+			"name": "pulse01",
+			"textureSuffix": "pulse01",
+			"glow": true,
+			"blending": "add",
+			"scrollSpeedX": 0,
+			"scrollSpeedY": 0,
+			"colorFadeAlpha": 15
+		},
+		{
+			"name": "pulse02",
+			"textureSuffix": "pulse02",
+			"glow": true,
+			"blending": "add",
+			"scrollSpeedX": 0,
+			"scrollSpeedY": 0,
+			"colorFadeAlpha": 20
+		},
+		{
+			"name": "pulse03",
+			"textureSuffix": "pulse03",
+			"glow": true,
+			"blending": "add",
+			"scrollSpeedX": 0,
+			"scrollSpeedY": 0,
+			"colorFadeAlpha": 25
+		}
+	]
+}

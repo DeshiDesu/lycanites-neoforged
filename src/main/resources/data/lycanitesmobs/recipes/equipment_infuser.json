@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "lycanitesmobs:equipment_infuser"
+  },
+  "pattern": [
+    "LLL",
+    "LFL",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "F": {
+      "item": "lycanitesmobs:equipmentforge_lesser"
+    }
+  },
+  "type": "minecraft:crafting_shaped"
+}

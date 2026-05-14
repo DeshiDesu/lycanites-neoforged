@@ -1,0 +1,15 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"ooze": [
+			{ "custom": { "fluid": "ooze" } }
+		],
+		"purelava": [
+			{ "custom": { "fluid": "purelava" } }
+		]
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "block/slab_top",
+	"textures": {
+		"bottom": "lycanitesmobs:block/demonstonebrick",
+        "top": "lycanitesmobs:block/demonstonebrick",
+        "side": "lycanitesmobs:block/demonstonebrick"
+	}
+}

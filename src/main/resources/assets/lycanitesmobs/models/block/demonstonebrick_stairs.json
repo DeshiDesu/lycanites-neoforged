@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "lycanitesmobs:block/demonstonebrick",
+        "top": "lycanitesmobs:block/demonstonebrick",
+        "side": "lycanitesmobs:block/demonstonebrick"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "lycanitesmobs:block/aberrantstonetile",
+        "top": "lycanitesmobs:block/aberrantstonetile",
+        "side": "lycanitesmobs:block/aberrantstonetile"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "lycanitesmobs:bulwark_burger"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "lycanitesmobs:cooked_maka_meat"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

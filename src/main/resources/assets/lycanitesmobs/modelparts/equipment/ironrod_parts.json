@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Base",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Pommel",
+    "parent": "Base",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.48",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Base",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "0.42",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

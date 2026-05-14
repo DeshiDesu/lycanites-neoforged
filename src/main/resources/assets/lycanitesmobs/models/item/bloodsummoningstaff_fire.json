@@ -1,0 +1,6 @@
+{
+	"parent": "lycanitesmobs:item/bloodsummoningstaff",
+	"textures": {
+		"layer0": "lycanitesmobs:item/staffs/bloodsummoningstaff_fire"
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "lycanitesmobs:devil_lasagna"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "lycanitesmobs:cooked_kathoga_meat"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

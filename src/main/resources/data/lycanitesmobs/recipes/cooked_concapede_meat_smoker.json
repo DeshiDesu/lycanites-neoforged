@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smoking",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_concapede_meat"
+	},
+	"result": "lycanitesmobs:cooked_concapede_meat",
+	"experience": 0.35,
+	"cookingtime": 100
+}

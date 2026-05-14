@@ -1,0 +1,7 @@
+{
+    "parent": "lycanitesmobs:block/doomfire_up_alt",
+    "textures": {
+        "particle": "lycanitesmobs:block/doomfire_layer_1",
+        "fire": "lycanitesmobs:block/doomfire_layer_1"
+    }
+}

@@ -1,0 +1,39 @@
+{
+	"partAnimations": [
+		{
+			"targetParts": [
+				"fingerleft01"
+			],
+			"loopType": "reverse",
+			"duration": 0.75,
+			"rotateX": -1
+		},
+		{
+			"targetParts": [
+				"fingerleft02"
+			],
+			"loopType": "reverse",
+			"duration": 0.75,
+			"offset": 0.25,
+			"rotateX": -1
+		},
+		{
+			"targetParts": [
+				"fingerleft03"
+			],
+			"loopType": "reverse",
+			"duration": 0.75,
+			"offset": 0.5,
+			"rotateX": -1
+		},
+		{
+			"targetParts": [
+				"fingerleft04"
+			],
+			"loopType": "reverse",
+			"duration": 0.75,
+			"offset": 0.75,
+			"rotateX": -1
+		}
+	]
+}

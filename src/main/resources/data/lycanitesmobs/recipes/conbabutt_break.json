@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:poopcharge",
+    "count": 4
+  },
+  "ingredients": [
+	{
+      "item": "lycanitesmobs:equipmentpart_conbabutt"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

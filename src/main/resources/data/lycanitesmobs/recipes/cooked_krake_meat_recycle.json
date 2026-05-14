@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "lycanitesmobs:cooked_krake_meat"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:caecilian_ramen"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:campfire_cooking",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_chupacabra_meat"
+	},
+	"result": "lycanitesmobs:cooked_chupacabra_meat",
+	"experience": 0.35,
+	"cookingtime": 600
+}

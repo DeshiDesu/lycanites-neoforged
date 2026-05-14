@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.624",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftFrontUpper",
+    "parent": "Body",
+    "centerX": "0.109",
+    "centerY": "0.975",
+    "centerZ": "0.034",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftFrontLower",
+    "parent": "LegLeftFrontUpper",
+    "centerX": "1.006",
+    "centerY": "1.062",
+    "centerZ": "0.419",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Mouth",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.429",
+    "centerZ": "-0.273",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Hair03",
+    "parent": "Body",
+    "centerX": "-0.008",
+    "centerY": "0.915",
+    "centerZ": "0.118",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Hair02",
+    "parent": "Body",
+    "centerX": "0.051",
+    "centerY": "0.835",
+    "centerZ": "-0.044",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Eyes",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.624",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Effect",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.544",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftBackUpper",
+    "parent": "Body",
+    "centerX": "0.109",
+    "centerY": "0.975",
+    "centerZ": "-0.134",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeftBackLower",
+    "parent": "LegLeftBackUpper",
+    "centerX": "1.006",
+    "centerY": "1.062",
+    "centerZ": "-0.519",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightFrontUpper",
+    "parent": "Body",
+    "centerX": "-0.109",
+    "centerY": "0.975",
+    "centerZ": "0.034",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightFrontLower",
+    "parent": "LegRightFrontUpper",
+    "centerX": "-1.006",
+    "centerY": "1.062",
+    "centerZ": "0.419",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightBackUpper",
+    "parent": "Body",
+    "centerX": "-0.109",
+    "centerY": "0.975",
+    "centerZ": "-0.134",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRightBackLower",
+    "parent": "LegRightBackUpper",
+    "centerX": "-1.006",
+    "centerY": "1.062",
+    "centerZ": "-0.519",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Hair01",
+    "parent": "Body",
+    "centerX": "0.09",
+    "centerY": "0.927",
+    "centerZ": "0.06",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

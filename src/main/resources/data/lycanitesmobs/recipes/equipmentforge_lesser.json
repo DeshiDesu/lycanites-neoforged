@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "lycanitesmobs:equipmentforge_lesser"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:crafting_table"
+    },
+    {
+      "item": "minecraft:wooden_axe"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

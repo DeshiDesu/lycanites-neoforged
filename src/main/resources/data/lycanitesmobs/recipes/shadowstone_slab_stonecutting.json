@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "lycanitesmobs:shadowstone"
+	},
+	"result": "lycanitesmobs:shadowstone_slab",
+	"count": 2
+}

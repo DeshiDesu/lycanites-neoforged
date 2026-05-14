@@ -1,0 +1,7 @@
+{
+    "parent": "lycanitesmobs:block/frostfire_up",
+    "textures": {
+        "particle": "lycanitesmobs:block/frostfire_layer_0",
+        "fire": "lycanitesmobs:block/frostfire_layer_0"
+    }
+}

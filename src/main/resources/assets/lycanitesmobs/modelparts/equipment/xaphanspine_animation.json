@@ -1,0 +1,28 @@
+{
+	"partAnimations": [
+		{
+			"targetParts": [
+				"baseback01"
+			],
+			"loopType": "reverse",
+			"duration": 0.5,
+			"rotateX": -1
+		},
+		{
+			"targetParts": [
+				"basefront02"
+			],
+			"loopType": "reverse",
+			"duration": 0.5,
+			"rotateX": 1
+		},
+		{
+			"targetParts": [
+				"basefront03"
+			],
+			"loopType": "reverse",
+			"duration": 0.5,
+			"rotateX": -1
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_maka_meat"
+	},
+	"result": "lycanitesmobs:cooked_maka_meat",
+	"experience": 0.35,
+	"cookingtime": 200
+}

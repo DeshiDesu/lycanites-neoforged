@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:mudshotcharge",
+    "count": 4
+  },
+  "ingredients": [
+	{
+      "item": "lycanitesmobs:equipmentpart_erepededrill"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

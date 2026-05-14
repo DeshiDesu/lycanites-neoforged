@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "lycanitesmobs:desertcrystal"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:desertstone"
+    },
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

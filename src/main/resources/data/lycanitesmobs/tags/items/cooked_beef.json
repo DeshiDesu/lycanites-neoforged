@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:cooked_beef",
+		"lycanitesmobs:cooked_aspid_meat",
+		"lycanitesmobs:cooked_arisaur_meat",
+		"lycanitesmobs:cooked_chupacabra_meat"
+	]
+}

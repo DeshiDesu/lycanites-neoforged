@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_aspid_meat"
+	},
+	"result": "lycanitesmobs:cooked_aspid_meat",
+	"experience": 0.35,
+	"cookingtime": 200
+}

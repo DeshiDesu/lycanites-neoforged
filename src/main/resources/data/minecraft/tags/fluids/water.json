@@ -1,0 +1,19 @@
+{
+	"replace": false,
+	"values": [
+		"lycanitesmobs:ooze",
+		"lycanitesmobs:ooze_flowing",
+		"lycanitesmobs:rabbitooze",
+		"lycanitesmobs:rabbitooze_flowing",
+		"lycanitesmobs:acid",
+		"lycanitesmobs:acid_flowing",
+		"lycanitesmobs:sharacid",
+		"lycanitesmobs:sharacid_flowing",
+		"lycanitesmobs:poison",
+		"lycanitesmobs:poison_flowing",
+		"lycanitesmobs:vesspoison",
+		"lycanitesmobs:vesspoison_flowing",
+		"lycanitesmobs:veshoney",
+		"lycanitesmobs:veshoney_flowing"
+	]
+}

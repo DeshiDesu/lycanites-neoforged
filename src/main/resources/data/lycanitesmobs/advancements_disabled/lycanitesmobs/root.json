@@ -1,0 +1,29 @@
+{
+	"display": {
+		"icon": {
+			"item": "lycanitesmobs:soulgazer"
+		},
+		"title": {
+			"translate": "advancements.lycanitesmobs.root.title"
+		},
+		"description": {
+			"translate": "advancements.lycanitesmobs.root.description"
+		},
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false,
+		"background": "lycanitesmobs:textures/block/shadowstone.png"
+	},
+	"criteria": {
+		"consumed_item": {
+			"trigger": "minecraft:consume_item",
+			"conditions": {}
+		}
+	},
+	"requirements": [
+		[
+			"consumed_item"
+		]
+	]
+}

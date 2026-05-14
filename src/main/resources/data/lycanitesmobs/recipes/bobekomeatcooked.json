@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "lycanitesmobs:cooked_bobeko_meat"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:pale_soup"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

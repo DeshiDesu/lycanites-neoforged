@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "lycanitesmobs:vesspoison_bucket",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:poison_bucket"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

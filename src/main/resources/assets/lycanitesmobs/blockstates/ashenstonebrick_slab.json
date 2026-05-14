@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/ashenstonebrick_slab" },
+        "type=top": { "model": "lycanitesmobs:block/ashenstonebrick_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/ashenstonebrick" }
+    }
+}

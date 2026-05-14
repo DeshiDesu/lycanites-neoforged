@@ -1,0 +1,42 @@
+[
+  {
+    "name": "body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.8",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tail",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.6",
+    "centerZ": "-0.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "leftwing",
+    "parent": "",
+    "centerX": "0.1",
+    "centerY": "0.8",
+    "centerZ": "-0.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "rightwing",
+    "parent": "",
+    "centerX": "-0.1",
+    "centerY": "0.8",
+    "centerZ": "-0.1",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  }
+]

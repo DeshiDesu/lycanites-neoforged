@@ -1,0 +1,7 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "lycanitesmobs:item/spawns/worm",
+		"layer1": "lycanitesmobs:item/spawns/worm_overlay"
+	}
+}

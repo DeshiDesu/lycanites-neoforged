@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "lycanitesmobs:equipmentforge_greater"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:equipmentforge_lesser"
+    },
+    {
+      "item": "minecraft:iron_block"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

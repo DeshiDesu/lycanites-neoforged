@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "lycanitesmobs:raw_kathoga_meat"
+	},
+	"result": "lycanitesmobs:cooked_kathoga_meat",
+	"experience": 0.35,
+	"cookingtime": 200
+}

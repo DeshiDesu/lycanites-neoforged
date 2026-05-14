@@ -1,0 +1,13 @@
+{
+  "result": {
+    "item": "lycanitesmobs:sharacid_bucket",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:acid_bucket",
+      "item": "minecraft:ghast_tear"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

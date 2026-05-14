@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/demonstonetile_slab" },
+        "type=top": { "model": "lycanitesmobs:block/demonstonetile_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/demonstonetile" }
+    }
+}

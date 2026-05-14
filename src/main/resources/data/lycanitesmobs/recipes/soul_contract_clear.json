@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "lycanitesmobs:soul_contract",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:soul_contract"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

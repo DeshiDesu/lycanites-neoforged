@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:rotten_flesh",
+		"minecraft:fermented_spider_eye",
+		"minecraft:phantom_membrane",
+		"lycanitesmobs:geistliver"
+	]
+}

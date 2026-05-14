@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "lycanitesmobs:summoningpedestal"
+  },
+  "pattern": [
+    "GNG",
+    "DSD",
+    "GDG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "lycanitesmobs:soulstone"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "lycanitesmobs:soulgazer"
+    }
+  }
+}

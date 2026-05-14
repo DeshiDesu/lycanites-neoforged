@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:cooked_porkchop",
+		"lycanitesmobs:cooked_maka_meat",
+		"lycanitesmobs:cooked_bobeko_meat",
+		"lycanitesmobs:cooked_kathoga_meat"
+	]
+}

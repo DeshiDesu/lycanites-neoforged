@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "lycanitesmobs:immunizer",
+    "count": 8
+  },
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "QQQ",
+    "QBQ",
+    "QQQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "B": {
+      "item": "lycanitesmobs:veshoney_bucket"
+    }
+  }
+}

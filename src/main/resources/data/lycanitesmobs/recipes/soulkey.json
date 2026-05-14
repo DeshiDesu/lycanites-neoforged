@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "lycanitesmobs:soulkey"
+  },
+  "pattern": [
+    "DND",
+    "DSD",
+    "DDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "lycanitesmobs:soulgazer"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  }
+}

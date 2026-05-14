@@ -1,0 +1,7 @@
+{
+    "parent": "lycanitesmobs:block/hellfire_side_alt",
+    "textures": {
+        "particle": "lycanitesmobs:block/hellfire_layer_1",
+        "fire": "lycanitesmobs:block/hellfire_layer_1"
+    }
+}

@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:cooked_rabbit",
+		"lycanitesmobs:cooked_concapede_meat",
+		"lycanitesmobs:cooked_krake_meat"
+	]
+}

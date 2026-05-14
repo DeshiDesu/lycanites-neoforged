@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "lycanitesmobs:saddle_plant",
+    "count": 1
+  },
+  "pattern": [
+    "MMM",
+    "MSM",
+    "NNN"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "M": {
+      "item": "minecraft:sugar_cane"
+    },
+    "N": {
+      "item": "minecraft:paper"
+    }
+  }
+}

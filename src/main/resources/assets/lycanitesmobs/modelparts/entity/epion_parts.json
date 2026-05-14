@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Cube",
+    "parent": "",
+    "centerX": "0.04",
+    "centerY": "0.46",
+    "centerZ": "0.99",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft01",
+    "parent": "Body",
+    "centerX": "0.285",
+    "centerY": "0.47",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Head",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "0.93",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.5",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "EarLeft",
+    "parent": "Head",
+    "centerX": "0.21",
+    "centerY": "0.635",
+    "centerZ": "1.14",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Mouth",
+    "parent": "Head",
+    "centerX": "0.0",
+    "centerY": "0.365",
+    "centerZ": "1.35",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingLeft02",
+    "parent": "WingLeft01",
+    "centerX": "2.374",
+    "centerY": "1.083",
+    "centerZ": "1.275",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight01",
+    "parent": "Body",
+    "centerX": "-0.285",
+    "centerY": "0.47",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "EarRight",
+    "parent": "Head",
+    "centerX": "-0.21",
+    "centerY": "0.635",
+    "centerZ": "1.14",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "WingRight02",
+    "parent": "WingRight01",
+    "centerX": "-2.374",
+    "centerY": "1.083",
+    "centerZ": "1.275",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

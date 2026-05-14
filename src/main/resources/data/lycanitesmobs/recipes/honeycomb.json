@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "minecraft:honeycomb",
+    "count": 8
+  },
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VVV",
+    "VBV",
+    "VVV"
+  ],
+  "key": {
+    "V": {
+      "item": "lycanitesmobs:veswax"
+    },
+    "B": {
+      "item": "lycanitesmobs:veshoney_bucket"
+    }
+  }
+}

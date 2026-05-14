@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "lycanitesmobs:block/equipment_infuser_top",
+        "front": "lycanitesmobs:block/equipment_infuser_front",
+        "side": "lycanitesmobs:block/equipment_infuser_side"
+    }
+}

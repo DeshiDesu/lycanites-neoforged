@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/streamstonebrick_slab" },
+        "type=top": { "model": "lycanitesmobs:block/streamstonebrick_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/streamstonebrick" }
+    }
+}

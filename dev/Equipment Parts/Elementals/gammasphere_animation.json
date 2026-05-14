@@ -1,0 +1,20 @@
+{
+	"textureLayers": [
+		{
+			"name": "base",
+			"glow": true,
+			"targetParts": [
+				"base"
+			]
+		},
+		{
+			"name": "glow",
+			"glow": true,
+			"blending": "add",
+			"targetParts": [
+				"ball02",
+				"ball03"
+			]
+		}
+	]
+}

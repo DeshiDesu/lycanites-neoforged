@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "lycanitesmobs:paleo_salad"
+  },
+  "ingredients": [
+    {
+      "tag": "minecraft:leaves"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "lycanitesmobs:cooked_arisaur_meat"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

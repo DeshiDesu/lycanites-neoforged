@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "minecraft:sugar",
+    "count": 8
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:veshoney_bucket"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "lycanitesmobs:block/desertstone_slab" },
+        "type=top": { "model": "lycanitesmobs:block/desertstone_slab_top" },
+        "type=double": { "model": "lycanitesmobs:block/desertstone_slab_double" }
+    }
+}

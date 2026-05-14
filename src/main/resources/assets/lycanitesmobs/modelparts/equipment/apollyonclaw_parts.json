@@ -1,0 +1,22 @@
+[
+  {
+    "name": "apollyonclaw",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "-65.125",
+    "rotationY": "172.334",
+    "rotationZ": "-16.73"
+  },
+  {
+    "name": "TipA",
+    "parent": "apollyonclaw",
+    "centerX": "0.0",
+    "centerY": "0.06",
+    "centerZ": "0.45",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

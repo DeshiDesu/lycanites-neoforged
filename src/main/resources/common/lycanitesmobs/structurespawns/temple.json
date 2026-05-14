@@ -1,0 +1,39 @@
+{
+  "name": "temple",
+  "type": "structure_spawn",
+  "enabled": true,
+  "loadDefault": true,
+  "category": "monster",
+  "boundingBox": "piece",
+  "maxInStructure": 4,
+  "structures": [
+    "minecraft:stronghold",
+    "minecraft:desert_pyramid",
+    "minecraft:jungle_pyramid",
+    "repurposed_structures:stronghold_nether",
+    "repurposed_structures:stronghold_end",
+    "repurposed_structures:pyramid_badlands",
+    "repurposed_structures:pyramid_snowy",
+    "repurposed_structures:pyramid_icy",
+    "repurposed_structures:pyramid_jungle",
+    "repurposed_structures:pyramid_mushroom",
+    "repurposed_structures:pyramid_ocean",
+    "repurposed_structures:pyramid_giant_tree_taiga",
+    "repurposed_structures:pyramid_flower_forest",
+    "repurposed_structures:pyramid_nether",
+    "repurposed_structures:pyramid_end",
+    "repurposed_structures:temple_nether_wasteland",
+    "repurposed_structures:temple_nether_soul",
+    "repurposed_structures:temple_nether_basalt",
+    "repurposed_structures:temple_nether_crimson",
+    "repurposed_structures:temple_nether_warped"
+  ],
+  "mobs": [
+    {
+      "mobId": "lycanitesmobs:sylph",
+      "weight": 8,
+      "minCount": 1,
+      "maxCount": 3
+    }
+  ]
+}

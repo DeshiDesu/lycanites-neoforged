@@ -1,0 +1,11 @@
+{
+  "result": {
+    "item": "lycanitesmobs:cooked_yale_meat"
+  },
+  "ingredients": [
+    {
+      "item": "lycanitesmobs:peaks_kebab"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

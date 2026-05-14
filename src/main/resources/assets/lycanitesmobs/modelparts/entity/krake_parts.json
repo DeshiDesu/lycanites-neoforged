@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "1.43",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthTop01",
+    "parent": "Neck",
+    "centerX": "0.0",
+    "centerY": "1.964",
+    "centerZ": "0.572",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthTop02",
+    "parent": "MouthTop01",
+    "centerX": "0.0",
+    "centerY": "1.634",
+    "centerZ": "1.002",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Neck",
+    "parent": "Body",
+    "centerX": "0.0",
+    "centerY": "1.43",
+    "centerZ": "-0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegLeft",
+    "parent": "Body",
+    "centerX": "0.199",
+    "centerY": "0.86",
+    "centerZ": "-0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Spike03",
+    "parent": "Neck",
+    "centerX": "-0.0",
+    "centerY": "2.133",
+    "centerZ": "-0.38",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmLeft01",
+    "parent": "Body",
+    "centerX": "0.2",
+    "centerY": "1.24",
+    "centerZ": "0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthLeft01",
+    "parent": "Neck",
+    "centerX": "0.157",
+    "centerY": "1.827",
+    "centerZ": "0.49",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthLeft02",
+    "parent": "MouthLeft01",
+    "centerX": "0.301",
+    "centerY": "1.495",
+    "centerZ": "0.817",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthBottom01",
+    "parent": "Neck",
+    "centerX": "0.0",
+    "centerY": "1.746",
+    "centerZ": "0.414",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthBottom02",
+    "parent": "MouthBottom01",
+    "centerX": "0.0",
+    "centerY": "1.31",
+    "centerZ": "0.692",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "LegRight",
+    "parent": "Body",
+    "centerX": "-0.199",
+    "centerY": "0.86",
+    "centerZ": "-0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmRight01",
+    "parent": "Body",
+    "centerX": "-0.2",
+    "centerY": "1.24",
+    "centerZ": "0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthRight01",
+    "parent": "Neck",
+    "centerX": "-0.157",
+    "centerY": "1.827",
+    "centerZ": "0.49",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "MouthRight02",
+    "parent": "MouthRight01",
+    "centerX": "-0.301",
+    "centerY": "1.495",
+    "centerZ": "0.817",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Spike02",
+    "parent": "Neck",
+    "centerX": "0.0",
+    "centerY": "2.32",
+    "centerZ": "-0.028",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Spike01",
+    "parent": "Neck",
+    "centerX": "0.0",
+    "centerY": "2.264",
+    "centerZ": "0.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Spike04",
+    "parent": "Neck",
+    "centerX": "-0.0",
+    "centerY": "1.832",
+    "centerZ": "-0.515",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "Spike05",
+    "parent": "Neck",
+    "centerX": "-0.0",
+    "centerY": "1.473",
+    "centerZ": "-0.426",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmLeft02",
+    "parent": "Body",
+    "centerX": "0.25",
+    "centerY": "1.44",
+    "centerZ": "0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  },
+  {
+    "name": "ArmRight02",
+    "parent": "Body",
+    "centerX": "-0.25",
+    "centerY": "1.44",
+    "centerZ": "0.03",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "-0.0"
+  }
+]

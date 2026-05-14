@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"owner=0": { "model": "lycanitesmobs:block/summoningpedestal_none" },
+		"owner=1": { "model": "lycanitesmobs:block/summoningpedestal_client" },
+		"owner=2": { "model": "lycanitesmobs:block/summoningpedestal_player" }
+	}
+}

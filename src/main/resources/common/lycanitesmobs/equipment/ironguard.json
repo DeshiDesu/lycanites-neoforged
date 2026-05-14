@@ -1,0 +1,33 @@
+{
+  "itemName": "ironguard",
+  "loadDefault": true,
+  "slotType": "head",
+  "dropMobId": "",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 1,
+  "features": [
+    {
+      "featureType": "slot",
+      "slotType": "blade"
+    },
+    {
+      "featureType": "damage",
+      "damageAmount": 2,
+      "damageKnockback": 0.5,
+      "damageCooldown": 0.75,
+      "damageRange": 1,
+      "damageSweep": 45
+    }
+  ],
+  "equipmentNames": [
+    "Guarded",
+    "Fortress",
+    "Shielded",
+    "Warden's",
+    "Bulwark",
+    "Ironclad",
+    "Bastion",
+    "Rampart"
+  ]
+}

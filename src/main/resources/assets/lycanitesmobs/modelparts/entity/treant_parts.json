@@ -1,0 +1,102 @@
+[
+  {
+    "name": "head",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "6.0",
+    "centerZ": "1.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "body",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "5.0",
+    "centerZ": "0.8",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armlefttop",
+    "parent": "",
+    "centerX": "0.9",
+    "centerY": "7.2",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armleftmiddle",
+    "parent": "",
+    "centerX": "1.2",
+    "centerY": "6.3",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armleftbottom",
+    "parent": "",
+    "centerX": "1.2",
+    "centerY": "5.4",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armrighttop",
+    "parent": "",
+    "centerX": "-0.9",
+    "centerY": "7.2",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armrightmiddle",
+    "parent": "",
+    "centerX": "-1.2",
+    "centerY": "6.3",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "armrightbottom",
+    "parent": "",
+    "centerX": "-1.2",
+    "centerY": "5.4",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "legleft",
+    "parent": "",
+    "centerX": "0.4",
+    "centerY": "4.5",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "legright",
+    "parent": "",
+    "centerX": "-0.4",
+    "centerY": "4.5",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  }
+]

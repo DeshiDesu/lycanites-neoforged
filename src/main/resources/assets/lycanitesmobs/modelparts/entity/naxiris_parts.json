@@ -1,0 +1,132 @@
+[
+  {
+    "name": "head",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "2.0",
+    "centerZ": "0.0",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "mouth",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "1.0",
+    "centerZ": "-0.5",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "eye",
+    "parent": "",
+    "centerX": "0.0",
+    "centerY": "2.6",
+    "centerZ": "1.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleleft01",
+    "parent": "",
+    "centerX": "1.6",
+    "centerY": "2.7",
+    "centerZ": "-0.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleleft02",
+    "parent": "",
+    "centerX": "0.6",
+    "centerY": "3.6",
+    "centerZ": "-0.4",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleleft03",
+    "parent": "",
+    "centerX": "1.2",
+    "centerY": "3.1",
+    "centerZ": "-0.5",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleleft04",
+    "parent": "",
+    "centerX": "1.4",
+    "centerY": "2.6",
+    "centerZ": "-0.6",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleleft05",
+    "parent": "",
+    "centerX": "0.9",
+    "centerY": "3.0",
+    "centerZ": "-0.9",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleright01",
+    "parent": "",
+    "centerX": "-1.6",
+    "centerY": "2.7",
+    "centerZ": "-0.3",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleright02",
+    "parent": "",
+    "centerX": "-0.6",
+    "centerY": "3.6",
+    "centerZ": "-0.4",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleright03",
+    "parent": "",
+    "centerX": "-1.2",
+    "centerY": "3.1",
+    "centerZ": "-0.5",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleright04",
+    "parent": "",
+    "centerX": "-1.4",
+    "centerY": "2.6",
+    "centerZ": "-0.6",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  },
+  {
+    "name": "tentacleright05",
+    "parent": "",
+    "centerX": "-0.9",
+    "centerY": "3.0",
+    "centerZ": "-0.9",
+    "rotationX": "0.0",
+    "rotationY": "0.0",
+    "rotationZ": "0.0"
+  }
+]
