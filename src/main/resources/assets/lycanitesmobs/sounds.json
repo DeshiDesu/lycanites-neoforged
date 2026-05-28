@@ -3676,10 +3676,6 @@
         "category": "ambient",
         "sounds": [{"name": "lycanitesmobs:effect/fear", "stream": false}]
     },
-    "effect.heartbeat": {
-        "category": "ambient",
-        "sounds": [{"name": "lycanitesmobs:effect/heartbeat", "stream": true}]
-    },
     "item.halloweentreat.good": {
         "category": "ambient",
         "sounds":

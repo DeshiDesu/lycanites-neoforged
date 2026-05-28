@@ -1,132 +1,132 @@
 [
   {
-    "name": "head",
+    "name": "ArmRight",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "10.0",
-    "centerZ": "0.0",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "shield",
+    "name": "LegRightMiddle",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "10.0",
-    "centerZ": "0.0",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "body",
+    "name": "LegRightBack",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "10.0",
-    "centerZ": "0.0",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "turret",
+    "name": "LegRightFront",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "7.72",
-    "centerZ": "-0.995",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "weapon",
+    "name": "LegLeftBack",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "4.6",
-    "centerZ": "-7.025",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "armleft",
+    "name": "LegLeftFront",
     "parent": "",
-    "centerX": "6.8",
-    "centerY": "15.6",
-    "centerZ": "-2.0",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "armright",
+    "name": "Shield",
     "parent": "",
-    "centerX": "-6.8",
-    "centerY": "15.6",
-    "centerZ": "-2.0",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legleftfront",
+    "name": "ArmLeft",
     "parent": "",
-    "centerX": "5.14256",
-    "centerY": "9.2",
-    "centerZ": "-3.2",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legleftmiddle",
+    "name": "Head",
     "parent": "",
-    "centerX": "6.4",
-    "centerY": "9.2",
-    "centerZ": "0.0",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legleftback",
+    "name": "Weapon",
     "parent": "",
-    "centerX": "5.14256",
-    "centerY": "9.2",
-    "centerZ": "3.2",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legrightfront",
+    "name": "Turret",
     "parent": "",
-    "centerX": "-5.14256",
-    "centerY": "9.2",
-    "centerZ": "-3.2",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legrightmiddle",
+    "name": "Body",
     "parent": "",
-    "centerX": "-6.4",
-    "centerY": "9.2",
-    "centerZ": "0.0",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "legrightback",
+    "name": "LegLeftMiddle",
     "parent": "",
-    "centerX": "-5.14256",
-    "centerY": "9.2",
-    "centerZ": "3.2",
-    "rotationX": "0.0",
+    "centerX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   }
 ]

@@ -1,32 +1,32 @@
 [
   {
-    "name": "head",
+    "name": "Body",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "0.4",
-    "centerZ": "0.8",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "mouth",
+    "name": "Mouth",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "0.25",
-    "centerZ": "1.0",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   },
   {
-    "name": "body",
+    "name": "Head",
     "parent": "",
     "centerX": "0.0",
-    "centerY": "0.4",
-    "centerZ": "0.8",
-    "rotationX": "0.0",
+    "centerY": "0.0",
+    "centerZ": "-0.0",
+    "rotationX": "89.964",
     "rotationY": "0.0",
-    "rotationZ": "0.0"
+    "rotationZ": "-0.0"
   }
 ]

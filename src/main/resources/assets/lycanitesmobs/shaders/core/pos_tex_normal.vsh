@@ -10,13 +10,10 @@ uniform mat3 NormalMat;
 uniform vec4 ColorModulator;
 uniform vec2 UvOffset;
 
-uniform int FogShape;
-
 out vec2 vTexCoord;
 out vec3 vNormalVS;
 out vec4 vColor;
 out vec3 vViewDir;
-out float vertexDistance;
 
 void main() {
     vec4 viewPos = ModelViewMat * vec4(Position, 1.0);
@@ -26,11 +23,4 @@ void main() {
     vNormalVS = normalize(NormalMat * Normal);
     vColor = ColorModulator;
     vViewDir = normalize(-viewPos.xyz);
-
-    // Fog distance: sphere (0) uses full 3D distance, cylinder (1) uses horizontal only
-    if (FogShape == 0) {
-        vertexDistance = length(viewPos.xyz);
-    } else {
-        vertexDistance = length(viewPos.xz);
-    }
 }
