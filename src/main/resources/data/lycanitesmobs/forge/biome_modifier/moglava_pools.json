@@ -1,9 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#lycanitesmobs:has_moglava_pools",
-  "features": [
-    "lycanitesmobs:moglava_lake",
-    "lycanitesmobs:moglava_spring"
-  ],
-  "step": "lakes"
-}

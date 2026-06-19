@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "lycanitesmobs:block/demonstonetile",
-        "top": "lycanitesmobs:block/demonstonetile",
-        "side": "lycanitesmobs:block/demonstonetile"
-    }
-}

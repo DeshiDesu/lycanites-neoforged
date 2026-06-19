@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:stonecutting",
-	"ingredient": {
-		"item": "lycanitesmobs:desertstonetile"
-	},
-	"result": "lycanitesmobs:desertstonetile_slab",
-	"count": 2
-}

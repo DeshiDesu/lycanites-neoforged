@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "lycanitesmobs:block/desertstonebrick",
-        "top": "lycanitesmobs:block/desertstonebrick",
-        "side": "lycanitesmobs:block/desertstonebrick"
-    }
-}

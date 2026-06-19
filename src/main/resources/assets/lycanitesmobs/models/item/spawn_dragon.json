@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "lycanitesmobs:item/spawns/dragon",
-		"layer1": "lycanitesmobs:item/spawns/dragon_overlay"
-	}
-}

@@ -1,9 +1,0 @@
-{
-	"parent": "block/cube_bottom_top",
-	"textures": {
-		"top": "lycanitesmobs:block/summoningpedestal_player_top",
-		"side": "lycanitesmobs:block/summoningpedestal_player_side",
-		"bottom": "lycanitesmobs:block/summoningpedestal_player",
-        "particle": "lycanitesmobs:block/summoningpedestal_player"
-	}
-}

@@ -1,8 +1,0 @@
-{
-	"parent": "block/slab",
-	"textures": {
-		"bottom": "lycanitesmobs:block/streamstonetile",
-        "top": "lycanitesmobs:block/streamstonetile",
-        "side": "lycanitesmobs:block/streamstonetile"
-	}
-}

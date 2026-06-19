@@ -1,8 +1,0 @@
-{
-	"parent": "block/slab",
-	"textures": {
-		"bottom": "lycanitesmobs:block/shadowstonetile",
-        "top": "lycanitesmobs:block/shadowstonetile",
-        "side": "lycanitesmobs:block/shadowstonetile"
-	}
-}

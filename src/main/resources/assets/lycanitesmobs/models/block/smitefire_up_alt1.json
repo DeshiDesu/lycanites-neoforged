@@ -1,7 +1,0 @@
-{
-    "parent": "lycanitesmobs:block/smitefire_up_alt",
-    "textures": {
-        "particle": "lycanitesmobs:block/smitefire_layer_1",
-        "fire": "lycanitesmobs:block/smitefire_layer_1"
-    }
-}

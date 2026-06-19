@@ -1,9 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "lycanitesmobs:block/equipment_station_top",
-        "front": "lycanitesmobs:block/equipment_station_front",
-        "side": "lycanitesmobs:block/equipment_station_side",
-        "bottom": "lycanitesmobs:block/equipment_station_bottom"
-    }
-}

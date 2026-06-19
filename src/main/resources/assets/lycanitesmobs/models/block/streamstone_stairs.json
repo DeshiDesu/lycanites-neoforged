@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "lycanitesmobs:block/streamstone",
-        "top": "lycanitesmobs:block/streamstone",
-        "side": "lycanitesmobs:block/streamstone"
-    }
-}
