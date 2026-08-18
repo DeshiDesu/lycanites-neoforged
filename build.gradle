@@ -5,11 +5,11 @@ plugins {
     id 'idea'
 }
 
-version = "0.0.1"
-group = "com.lycanite.core"
+version = mod_version
+group = mod_group_id
 
 base {
-    archivesName = "lycanitesmobs"
+    archivesName = "lycanitesmobs-neoforged"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -81,9 +81,11 @@ configurations {
 }
 
 dependencies {
-
     implementation "maven.modrinth:sodium:mc1.21.1-0.6.13-neoforge"
 
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -148,15 +150,29 @@ tasks.withType(ProcessResources).configureEach {
     }
 }
 
+var precompiledClassesDirectory = layout.buildDirectory.dir('classes/java/precompiled')
+
 var copyPrecompiledClasses = tasks.register('copyPrecompiledClasses', Sync) {
     from('src/main/java/com') {
         include '**/*.class'
+        exclude 'core/entity/spawner/location/StructureSpawnLocation.class'
         eachFile { details ->
             details.path = "com/lycanitesmobs/${details.path}"
         }
         includeEmptyDirs = false
     }
-    into layout.buildDirectory.dir('classes/java/main')
+    into precompiledClassesDirectory
+}
+
+sourceSets.main.output.dir(precompiledClassesDirectory)
+
+tasks.named('compileJava', JavaCompile).configure {
+    dependsOn copyPrecompiledClasses
+    setSource(files(
+            'src/main/java/com/lycanitesmobs/core/entity/spawner/location/StructureSearchPlanner.java',
+            'src/main/java/com/lycanitesmobs/core/entity/spawner/location/StructureSpawnLocation.java'
+    ))
+    classpath += files(precompiledClassesDirectory)
 }
 
 tasks.named('classes').configure {
@@ -164,8 +180,17 @@ tasks.named('classes').configure {
 }
 
 tasks.named('jar', Jar).configure {
-    dependsOn copyPrecompiledClasses
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    enabled = false
+    description = 'Disabled because the hybrid source tree is not a safe runtime release. Use neoforgedJar.'
+}
+
+tasks.named('compileTestJava', JavaCompile).configure {
+    classpath += tasks.named('compileJava', JavaCompile).get().classpath
+}
+
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
+    classpath += tasks.named('compileJava', JavaCompile).get().classpath
 }
 
 idea {
@@ -174,4 +199,10 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+
+apply from: 'gradle/neoforged-packaging.gradle'
+
+tasks.named('assemble').configure {
+    dependsOn tasks.named('neoforgedJar')
 }

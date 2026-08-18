@@ -1,0 +1,1056 @@
+import groovy.io.FileType
+import groovy.json.JsonSlurper
+import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputDirectory
+import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.OutputFile
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
+import org.gradle.api.tasks.TaskAction
+import org.gradle.work.DisableCachingByDefault
+
+import java.nio.charset.StandardCharsets
+import java.nio.file.AtomicMoveNotSupportedException
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+import java.security.MessageDigest
+import java.util.regex.Pattern
+import java.util.zip.ZipEntry
+import java.util.zip.ZipFile
+import java.util.zip.ZipOutputStream
+
+final class NeoforgedJarSupport {
+
+    static final String LOCATION_PACKAGE =
+            'com/lycanitesmobs/core/entity/spawner/location/'
+    static final String STRUCTURE_PREFIX = LOCATION_PACKAGE + 'StructureSpawnLocation'
+    static final String STRUCTURE_CLASS = STRUCTURE_PREFIX + '.class'
+    static final String PLANNER_PREFIX = LOCATION_PACKAGE + 'StructureSearchPlanner'
+    static final String PLANNER_CLASS = PLANNER_PREFIX + '.class'
+    static final String SEARCH_MODE_CLASS = PLANNER_PREFIX + '$SearchMode.class'
+    static final String FEAR_JSON = 'common/lycanitesmobs/creatures/fear.json'
+    static final String FEAR_ENTITY_CLASS =
+            'com/lycanitesmobs/core/entity/special/FearEntity.class'
+    static final String EXPECTED_FEAR_ENTITY =
+            'com.lycanitesmobs.core.entity.special.FearEntity'
+    static final String FORBIDDEN_FEAR_ENTITY =
+            'com.lycanitesmobs.core.entity.creature.aberration.EntityFear'
+    static final String MOD_METADATA_ENTRY = 'META-INF/neoforge.mods.toml'
+    static final String EXPECTED_ARTIFACT_NAME =
+            'lycanitesmobs-neoforged-0.0.1.jar'
+    static final String EXPECTED_MOD_ID = 'lycanitesmobs'
+    static final String EXPECTED_DISPLAY_NAME = 'Lycanites Mobs Neoforged'
+    static final String EXPECTED_VERSION = '0.0.1'
+    static final List<String> EXPECTED_AUTHORS = Collections.unmodifiableList([
+            'Lycanite',
+            'feetnuggets',
+            'deshidesu'
+    ])
+    private static final Set<String> TEXT_ENTRY_SUFFIXES =
+            Collections.unmodifiableSet(new LinkedHashSet<>([
+                    '.toml', '.json', '.mcmeta', '.txt', '.md',
+                    '.properties', '.yml', '.yaml', '.mf'
+            ]))
+    private static final Pattern SIGNATURE_ENTRY_PATTERN = Pattern.compile(
+            '(?i)^META-INF/.*\\.(?:SF|RSA|DSA|EC)$'
+    )
+    private static final Pattern LEGACY_PRIVATE_BRANDING_PATTERN =
+            createLegacyPrivateBrandingPattern()
+
+    private NeoforgedJarSupport() {
+    }
+
+    private static Pattern createLegacyPrivateBrandingPattern() {
+        String privateToken = ['s', 'o', 'b'].join('')
+        List<String> forbiddenLiterals = [
+                privateToken + 'Jar',
+                'verify' + privateToken + 'Jar',
+                '-' + privateToken + '.1',
+                privateToken + '/structure-locate-fix'
+        ]
+        [' ', '-', '_'].each { String separator ->
+            forbiddenLiterals.add(privateToken + separator + 'packaging')
+            forbiddenLiterals.add(
+                    privateToken + separator + 'jar' + separator + 'verification'
+            )
+            forbiddenLiterals.add(['Song', 'of', 'Blood'].join(separator))
+            forbiddenLiterals.add(['Song', 'of', 'Blud'].join(separator))
+        }
+        String alternatives = forbiddenLiterals.collect {
+            Pattern.quote(it)
+        }.join('|')
+        return Pattern.compile(
+                '(?i)(?:\\b' + Pattern.quote(privateToken) + '\\b|'
+                        + alternatives + ')'
+        )
+    }
+
+    static GradleException failure(String message) {
+        return new GradleException('[neoforgedJar] ' + message)
+    }
+
+    static File requireBaseJar(String configuredPath, File outputJar) {
+        String normalizedPath = configuredPath == null ? '' : configuredPath.trim()
+        if (normalizedPath.isEmpty()) {
+            throw failure(
+                    'Missing known-good upstream Lycanites JAR. Pass '
+                            + '-PupstreamLycanitesJar=<absolute path>.'
+            )
+        }
+
+        File baseJar = new File(normalizedPath)
+        if (!baseJar.isAbsolute()) {
+            throw failure(
+                    'The upstream Lycanites JAR path must be absolute: ' + normalizedPath
+            )
+        }
+        baseJar = baseJar.getCanonicalFile()
+        if (!baseJar.isFile()) {
+            throw failure(
+                    'The configured upstream Lycanites JAR does not exist or is not a file: '
+                            + baseJar
+            )
+        }
+        if (!baseJar.getName().toLowerCase(Locale.ROOT).endsWith('.jar')) {
+            throw failure('The configured upstream file is not a .jar: ' + baseJar)
+        }
+        if (baseJar == outputJar.getCanonicalFile()) {
+            throw failure('The upstream JAR cannot also be the neoforgedJar output: ' + baseJar)
+        }
+        return baseJar
+    }
+
+    static boolean isTaskOwnedClass(String entryName) {
+        return entryName == STRUCTURE_CLASS
+                || (entryName.startsWith(STRUCTURE_PREFIX + '$')
+                && entryName.endsWith('.class'))
+                || entryName == PLANNER_CLASS
+                || (entryName.startsWith(PLANNER_PREFIX + '$')
+                && entryName.endsWith('.class'))
+    }
+    static boolean isAllowedOverlayEntry(String entryName) {
+        return isTaskOwnedClass(entryName) || entryName == MOD_METADATA_ENTRY
+    }
+
+    static SortedMap<String, File> compiledTaskClasses(File compiledClassesDirectory) {
+        if (!compiledClassesDirectory.isDirectory()) {
+            throw failure(
+                    'Compiled main classes directory is missing: ' + compiledClassesDirectory
+            )
+        }
+
+        SortedMap<String, File> compiledClasses = new TreeMap<>()
+        compiledClassesDirectory.eachFileRecurse(FileType.FILES) { File classFile ->
+            String entryName = compiledClassesDirectory.toPath()
+                    .relativize(classFile.toPath())
+                    .toString()
+                    .replace(File.separatorChar, '/' as char)
+            if (isTaskOwnedClass(entryName)) {
+                File previous = compiledClasses.put(entryName, classFile)
+                if (previous != null) {
+                    throw failure('Duplicate compiled task-owned class: ' + entryName)
+                }
+            }
+        }
+
+        List<String> requiredClasses = [
+                STRUCTURE_CLASS,
+                PLANNER_CLASS,
+                SEARCH_MODE_CLASS
+        ]
+        List<String> missingClasses = requiredClasses.findAll {
+            !compiledClasses.containsKey(it)
+        }
+        if (!missingClasses.isEmpty()) {
+            throw failure(
+                    'Required compiled patch classes are missing: '
+                            + missingClasses.join(', ')
+            )
+        }
+        return compiledClasses
+    }
+
+    static void writeRuntimeJar(
+            File baseJar,
+            File outputJar,
+            SortedMap<String, File> compiledClasses,
+            File renderedMetadata
+    ) {
+        Files.createDirectories(outputJar.toPath().getParent())
+        File temporaryJar = File.createTempFile(
+                outputJar.getName() + '.',
+                '.tmp',
+                outputJar.getParentFile()
+        )
+        boolean moved = false
+        try {
+            Set<String> baseEntryNames = new HashSet<>()
+            Set<String> outputEntryNames = new HashSet<>()
+            new ZipFile(baseJar).withCloseable { ZipFile baseZip ->
+                new ZipOutputStream(
+                        new BufferedOutputStream(new FileOutputStream(temporaryJar))
+                ).withCloseable { ZipOutputStream output ->
+                    Enumeration<? extends ZipEntry> entries = baseZip.entries()
+                    while (entries.hasMoreElements()) {
+                        ZipEntry baseEntry = entries.nextElement()
+                        String entryName = baseEntry.getName()
+                        if (!baseEntryNames.add(entryName)) {
+                            throw failure(
+                                    'The upstream JAR contains a duplicate entry: ' + entryName
+                            )
+                        }
+                        if (isAllowedOverlayEntry(entryName)) {
+                            continue
+                        }
+                        if (!outputEntryNames.add(entryName)) {
+                            throw failure(
+                                    'Duplicate output entry while copying upstream JAR: '
+                                            + entryName
+                            )
+                        }
+                        copyBaseEntry(baseZip, baseEntry, output)
+                    }
+
+                    compiledClasses.each { String entryName, File classFile ->
+                        writeOverlayEntry(
+                                output,
+                                outputEntryNames,
+                                entryName,
+                                classFile
+                        )
+                    }
+                    writeOverlayEntry(
+                            output,
+                            outputEntryNames,
+                            MOD_METADATA_ENTRY,
+                            renderedMetadata
+                    )
+                }
+            }
+
+            try {
+                Files.move(
+                        temporaryJar.toPath(),
+                        outputJar.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.ATOMIC_MOVE
+                )
+            } catch (AtomicMoveNotSupportedException ignored) {
+                Files.move(
+                        temporaryJar.toPath(),
+                        outputJar.toPath(),
+                        StandardCopyOption.REPLACE_EXISTING
+                )
+            }
+            moved = true
+        } finally {
+            if (!moved) {
+                Files.deleteIfExists(temporaryJar.toPath())
+            }
+        }
+    }
+
+    private static void writeOverlayEntry(
+            ZipOutputStream output,
+            Set<String> outputEntryNames,
+            String entryName,
+            File sourceFile
+    ) {
+        if (!outputEntryNames.add(entryName)) {
+            throw failure('Overlay would create a duplicate entry: ' + entryName)
+        }
+        ZipEntry overlayEntry = new ZipEntry(entryName)
+        overlayEntry.setMethod(ZipEntry.DEFLATED)
+        overlayEntry.setTime(0L)
+        output.putNextEntry(overlayEntry)
+        Files.copy(sourceFile.toPath(), output)
+        output.closeEntry()
+    }
+    private static void copyBaseEntry(
+            ZipFile baseZip,
+            ZipEntry baseEntry,
+            ZipOutputStream output
+    ) {
+        if (baseEntry.getMethod() != ZipEntry.STORED
+                && baseEntry.getMethod() != ZipEntry.DEFLATED) {
+            throw failure(
+                    'Unsupported ZIP compression method for entry '
+                            + baseEntry.getName() + ': ' + baseEntry.getMethod()
+            )
+        }
+
+        ZipEntry copiedEntry = new ZipEntry(baseEntry.getName())
+        copiedEntry.setMethod(baseEntry.getMethod())
+        if (baseEntry.getTime() >= 0L) {
+            copiedEntry.setTime(baseEntry.getTime())
+        }
+        if (baseEntry.getComment() != null) {
+            copiedEntry.setComment(baseEntry.getComment())
+        }
+        if (baseEntry.getExtra() != null) {
+            copiedEntry.setExtra(baseEntry.getExtra())
+        }
+        if (baseEntry.getMethod() == ZipEntry.STORED) {
+            copiedEntry.setSize(baseEntry.getSize())
+            copiedEntry.setCompressedSize(baseEntry.getSize())
+            copiedEntry.setCrc(baseEntry.getCrc())
+        }
+
+        output.putNextEntry(copiedEntry)
+        if (!baseEntry.isDirectory()) {
+            baseZip.getInputStream(baseEntry).withCloseable { InputStream input ->
+                input.transferTo(output)
+            }
+        }
+        output.closeEntry()
+    }
+
+    static Map<String, String> archiveHashes(File archive) {
+        Map<String, String> hashes = new LinkedHashMap<>()
+        new ZipFile(archive).withCloseable { ZipFile zip ->
+            Enumeration<? extends ZipEntry> entries = zip.entries()
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement()
+                String entryName = entry.getName()
+                if (hashes.containsKey(entryName)) {
+                    throw failure(
+                            archive.getName() + ' contains a duplicate entry: ' + entryName
+                    )
+                }
+                zip.getInputStream(entry).withCloseable { InputStream input ->
+                    hashes.put(entryName, sha256(input))
+                }
+            }
+        }
+        return hashes
+    }
+
+    static String readEntryText(File archive, String entryName) {
+        new ZipFile(archive).withCloseable { ZipFile zip ->
+            ZipEntry entry = zip.getEntry(entryName)
+            if (entry == null) {
+                throw failure(
+                        archive.getName() + ' is missing required entry: ' + entryName
+                )
+            }
+            return zip.getInputStream(entry).withCloseable { InputStream input ->
+                new String(input.readAllBytes(), StandardCharsets.UTF_8)
+            }
+        }
+    }
+
+    static List<String> creatureJsonsReferencing(File archive, String className) {
+        List<String> references = []
+        new ZipFile(archive).withCloseable { ZipFile zip ->
+            Enumeration<? extends ZipEntry> entries = zip.entries()
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement()
+                String entryName = entry.getName()
+                if (!entryName.startsWith('common/lycanitesmobs/creatures/')
+                        || !entryName.endsWith('.json')) {
+                    continue
+                }
+                String text = zip.getInputStream(entry).withCloseable {
+                    InputStream input ->
+                        new String(input.readAllBytes(), StandardCharsets.UTF_8)
+                }
+                if (text.contains(className)) {
+                    references.add(entryName)
+                }
+            }
+        }
+        return references.sort()
+    }
+
+    static List<String> testClassEntries(Set<String> entryNames) {
+        return entryNames.findAll { String entryName ->
+            if (!entryName.endsWith('.class')) {
+                return false
+            }
+            String simpleName = entryName.substring(entryName.lastIndexOf('/') + 1)
+            return entryName.contains('/test/')
+                    || entryName.contains('/tests/')
+                    || simpleName.matches(
+                    '(?i).*(?:Test|Tests)(?:\\$.*)?\\.class'
+            )
+        }.sort()
+    }
+
+    static void validateKnownGoodBase(File baseJar) {
+        Map<String, String> baseHashes = archiveHashes(baseJar)
+        if (!baseHashes.containsKey(STRUCTURE_CLASS)) {
+            throw failure(
+                    'The configured upstream JAR does not contain '
+                            + STRUCTURE_CLASS
+            )
+        }
+        if (!baseHashes.containsKey(MOD_METADATA_ENTRY)) {
+            throw failure(
+                    'The configured upstream JAR is missing required NeoForge metadata: '
+                            + MOD_METADATA_ENTRY
+            )
+        }
+        requireNoEntries(
+                'The configured upstream JAR contains signature entries that would become stale',
+                signatureEntries(baseHashes.keySet())
+        )
+        String baseMetadata = readEntryText(baseJar, MOD_METADATA_ENTRY)
+        requireMetadataValue(baseMetadata, 'modId', EXPECTED_MOD_ID)
+        requireMetadataValue(baseMetadata, 'version', EXPECTED_VERSION)
+
+        int fearJsonCount = baseHashes.keySet().count { it == FEAR_JSON }
+        if (fearJsonCount != 1) {
+            throw failure(
+                    'The configured upstream JAR must contain exactly one '
+                            + FEAR_JSON + '; found ' + fearJsonCount
+            )
+        }
+        Object fearJson = new JsonSlurper().parseText(
+                readEntryText(baseJar, FEAR_JSON)
+        )
+        if (fearJson.entityClass != EXPECTED_FEAR_ENTITY) {
+            throw failure(
+                    'The configured upstream JAR is not a known-good release: '
+                            + FEAR_JSON + ' references ' + fearJson.entityClass
+                            + ' instead of ' + EXPECTED_FEAR_ENTITY
+            )
+        }
+        if (!baseHashes.containsKey(FEAR_ENTITY_CLASS)) {
+            throw failure(
+                    'The configured upstream JAR is missing ' + FEAR_ENTITY_CLASS
+            )
+        }
+        requireNoEntries(
+                'The configured upstream JAR contains obsolete EntityFear references',
+                creatureJsonsReferencing(baseJar, FORBIDDEN_FEAR_ENTITY)
+        )
+        requireNoEntries(
+                'The configured upstream JAR contains test classes',
+                testClassEntries(baseHashes.keySet())
+        )
+
+        Pattern modIdPattern = Pattern.compile(
+                '(?m)^\\s*modId\\s*=\\s*["\']lycanitesmobs["\']\\s*$'
+        )
+        List<String> metadataEntries = [
+                'META-INF/neoforge.mods.toml',
+                'META-INF/mods.toml'
+        ].findAll { baseHashes.containsKey(it) }
+        boolean modIdPresent = metadataEntries.any { String metadataEntry ->
+            modIdPattern.matcher(readEntryText(baseJar, metadataEntry)).find()
+        }
+        if (!modIdPresent) {
+            throw failure(
+                    'The configured upstream JAR does not declare mod ID lycanitesmobs.'
+            )
+        }
+    }
+
+    static SortedSet<String> optionalModDependencies(
+            File archive,
+            Collection<String> metadataEntries
+    ) {
+        SortedSet<String> dependencies = new TreeSet<>()
+        Pattern dependencyHeader = Pattern.compile(
+                '^\\[\\[dependencies\\.([^]]+)]]$'
+        )
+        Pattern modIdPattern = Pattern.compile(
+                '(?m)^\\s*modId\\s*=\\s*["\']([^"\']+)["\']\\s*(?:#.*)?$'
+        )
+        Pattern optionalTypePattern = Pattern.compile(
+                '(?im)^\\s*type\\s*=\\s*["\']optional["\']\\s*(?:#.*)?$'
+        )
+        Pattern optionalMandatoryPattern = Pattern.compile(
+                '(?im)^\\s*mandatory\\s*=\\s*false\\s*(?:#.*)?$'
+        )
+
+        metadataEntries.each { String metadataEntry ->
+            List<String> lines = readEntryText(archive, metadataEntry).readLines()
+            int lineIndex = 0
+            while (lineIndex < lines.size()) {
+                def headerMatcher = dependencyHeader.matcher(lines.get(lineIndex).trim())
+                if (!headerMatcher.matches()) {
+                    lineIndex++
+                    continue
+                }
+
+                String dependencyOwner = headerMatcher.group(1)
+                int blockEnd = lineIndex + 1
+                while (blockEnd < lines.size()
+                        && !lines.get(blockEnd).trim().startsWith('[')) {
+                    blockEnd++
+                }
+                String block = lines.subList(lineIndex + 1, blockEnd).join('\n')
+                def modIdMatcher = modIdPattern.matcher(block)
+                boolean optional = optionalTypePattern.matcher(block).find()
+                        || optionalMandatoryPattern.matcher(block).find()
+                if (optional && modIdMatcher.find()) {
+                    dependencies.add(
+                            metadataEntry + ':' + dependencyOwner + '->'
+                                    + modIdMatcher.group(1)
+                    )
+                }
+                lineIndex = blockEnd
+            }
+        }
+        return dependencies
+    }
+
+    static String sha256(File file) {
+        file.withInputStream { InputStream input ->
+            return sha256(input)
+        }
+    }
+
+    static String sha256(InputStream input) {
+        MessageDigest digest = MessageDigest.getInstance('SHA-256')
+        byte[] buffer = new byte[8192]
+        int read
+        while ((read = input.read(buffer)) >= 0) {
+            if (read > 0) {
+                digest.update(buffer, 0, read)
+            }
+        }
+        return HexFormat.of().withUpperCase().formatHex(digest.digest())
+    }
+
+    static String metadataField(String metadataText, String fieldName) {
+        Pattern fieldPattern = Pattern.compile(
+                "(?m)^\\s*" + Pattern.quote(fieldName)
+                        + "\\s*=\\s*[\"']([^\"']+)[\"']\\s*(?:#.*)?\$"
+        )
+        def matcher = fieldPattern.matcher(metadataText)
+        if (!matcher.find()) {
+            throw failure('Metadata is missing field ' + fieldName + '.')
+        }
+        return matcher.group(1)
+    }
+    static void requireMetadataValue(
+            String metadataText,
+            String fieldName,
+            String expectedValue
+    ) {
+        String actualValue = metadataField(metadataText, fieldName)
+        if (actualValue != expectedValue) {
+            throw failure(
+                    'Metadata field ' + fieldName + ' is ' + actualValue
+                            + ' instead of ' + expectedValue + '.'
+            )
+        }
+    }
+
+    static void validateRenderedMetadata(File metadataFile) {
+        if (!metadataFile.isFile()) {
+            throw failure('Rendered NeoForge metadata is missing: ' + metadataFile)
+        }
+        String metadataText = Files.readString(
+                metadataFile.toPath(),
+                StandardCharsets.UTF_8
+        )
+        requireMetadataValue(metadataText, 'modId', EXPECTED_MOD_ID)
+        requireMetadataValue(metadataText, 'displayName', EXPECTED_DISPLAY_NAME)
+        requireMetadataValue(metadataText, 'version', EXPECTED_VERSION)
+        List<String> actualAuthors = metadataField(metadataText, 'authors')
+                .split(',')
+                .collect { it.trim() }
+        if (actualAuthors != EXPECTED_AUTHORS) {
+            throw failure(
+                    'Metadata authors must be exactly '
+                            + EXPECTED_AUTHORS.join(', ') + '; found '
+                            + actualAuthors.join(', ') + '.'
+            )
+        }
+        if (!metadataText.contains('unofficial')
+                || !metadataText.contains('NeoForge 1.21.1')) {
+            throw failure(
+                    'Metadata description must identify the unofficial NeoForge 1.21.1 fork.'
+            )
+        }
+        if (LEGACY_PRIVATE_BRANDING_PATTERN.matcher(metadataText).find()) {
+            throw failure('Rendered metadata contains legacy private-project branding.')
+        }
+    }
+
+    static String normalizedDependencySection(String metadataText) {
+        int dependencyStart = metadataText.indexOf('[[dependencies.')
+        if (dependencyStart < 0) {
+            return ''
+        }
+        return metadataText.substring(dependencyStart)
+                .replace('\r\n', '\n')
+                .trim()
+    }
+
+    static List<String> signatureEntries(Set<String> entryNames) {
+        return entryNames.findAll { String entryName ->
+            SIGNATURE_ENTRY_PATTERN.matcher(entryName).matches()
+        }.toList().sort()
+    }
+
+    private static boolean isTextEntry(String entryName) {
+        String lowerName = entryName.toLowerCase(Locale.ROOT)
+        return TEXT_ENTRY_SUFFIXES.any { lowerName.endsWith(it) }
+    }
+
+    static List<String> legacyPrivateBrandingMatches(File archive) {
+        List<String> matches = []
+        new ZipFile(archive).withCloseable { ZipFile zip ->
+            Enumeration<? extends ZipEntry> entries = zip.entries()
+            while (entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement()
+                String entryName = entry.getName()
+                if (LEGACY_PRIVATE_BRANDING_PATTERN.matcher(entryName).find()) {
+                    matches.add('entry:' + entryName)
+                }
+                if (entry.isDirectory() || !isTextEntry(entryName)) {
+                    continue
+                }
+                String text = zip.getInputStream(entry).withCloseable {
+                    InputStream input ->
+                        new String(input.readAllBytes(), StandardCharsets.UTF_8)
+                }
+                if (LEGACY_PRIVATE_BRANDING_PATTERN.matcher(text).find()) {
+                    matches.add('content:' + entryName)
+                }
+            }
+        }
+        return matches.sort()
+    }
+    static void requireNoEntries(String description, Collection<String> entries) {
+        if (!entries.isEmpty()) {
+            List<String> preview = entries.toList().sort().take(20)
+            throw failure(
+                    description + ' (' + entries.size() + '): ' + preview.join(', ')
+            )
+        }
+    }
+}
+
+@DisableCachingByDefault(because = 'Always reconstructs a release artifact from an explicit binary input')
+abstract class NeoforgedJarTask extends DefaultTask {
+
+    @Input
+    abstract Property<String> getUpstreamJarPath()
+
+    @InputDirectory
+    @PathSensitive(PathSensitivity.RELATIVE)
+    abstract DirectoryProperty getCompiledClassesDirectory()
+
+    @InputFile
+    @PathSensitive(PathSensitivity.RELATIVE)
+    abstract RegularFileProperty getMetadataFile()
+
+    @OutputFile
+    abstract RegularFileProperty getOutputJar()
+
+    @TaskAction
+    void createRuntimeJar() {
+        File output = outputJar.get().asFile
+        File base = NeoforgedJarSupport.requireBaseJar(upstreamJarPath.get(), output)
+        File renderedMetadata = metadataFile.get().asFile
+        Files.deleteIfExists(output.toPath())
+        NeoforgedJarSupport.validateKnownGoodBase(base)
+        NeoforgedJarSupport.validateRenderedMetadata(renderedMetadata)
+        SortedMap<String, File> compiledClasses =
+                NeoforgedJarSupport.compiledTaskClasses(compiledClassesDirectory.get().asFile)
+
+        NeoforgedJarSupport.writeRuntimeJar(
+                base,
+                output,
+                compiledClasses,
+                renderedMetadata
+        )
+        logger.lifecycle(
+                'Created canonical surgical Lycanites runtime JAR: ' + output
+                        + ' (' + compiledClasses.size()
+                        + ' optimized class entries plus metadata)'
+        )
+    }
+}
+@DisableCachingByDefault(because = 'Performs a complete entry-content parity audit')
+abstract class VerifyNeoforgedJarTask extends DefaultTask {
+
+    @Input
+    abstract Property<String> getUpstreamJarPath()
+
+    @InputDirectory
+    @PathSensitive(PathSensitivity.RELATIVE)
+    abstract DirectoryProperty getCompiledClassesDirectory()
+
+    @InputFile
+    @PathSensitive(PathSensitivity.RELATIVE)
+    abstract RegularFileProperty getMetadataFile()
+
+    @Input
+    abstract Property<String> getRuntimeJarPath()
+
+    @OutputFile
+    abstract RegularFileProperty getVerificationReport()
+
+    @TaskAction
+    void verifyRuntimeJar() {
+        File runtimeJar = new File(runtimeJarPath.get()).getCanonicalFile()
+        if (runtimeJar.getName() != NeoforgedJarSupport.EXPECTED_ARTIFACT_NAME) {
+            throw NeoforgedJarSupport.failure(
+                    'Runtime artifact filename must be exactly '
+                            + NeoforgedJarSupport.EXPECTED_ARTIFACT_NAME
+                            + '; found ' + runtimeJar.getName()
+            )
+        }
+        File base = NeoforgedJarSupport.requireBaseJar(
+                upstreamJarPath.get(),
+                runtimeJar
+        )
+        if (!runtimeJar.isFile()) {
+            throw NeoforgedJarSupport.failure('Runtime JAR is missing: ' + runtimeJar)
+        }
+
+        Files.deleteIfExists(verificationReport.get().asFile.toPath())
+        File renderedMetadata = metadataFile.get().asFile
+        NeoforgedJarSupport.validateKnownGoodBase(base)
+        NeoforgedJarSupport.validateRenderedMetadata(renderedMetadata)
+        SortedMap<String, File> compiledClasses =
+                NeoforgedJarSupport.compiledTaskClasses(
+                        compiledClassesDirectory.get().asFile
+                )
+        Map<String, String> baseHashes = NeoforgedJarSupport.archiveHashes(base)
+        Map<String, String> runtimeHashes =
+                NeoforgedJarSupport.archiveHashes(runtimeJar)
+
+        Set<String> unrelatedBaseEntries = baseHashes.keySet().findAll {
+            !NeoforgedJarSupport.isAllowedOverlayEntry(it)
+        } as Set<String>
+        NeoforgedJarSupport.requireNoEntries(
+                'Unrelated upstream entries missing from runtime JAR',
+                unrelatedBaseEntries.findAll { !runtimeHashes.containsKey(it) }
+        )
+        NeoforgedJarSupport.requireNoEntries(
+                'Unrelated entries added to runtime JAR',
+                runtimeHashes.keySet().findAll {
+                    !NeoforgedJarSupport.isAllowedOverlayEntry(it)
+                            && !baseHashes.containsKey(it)
+                }
+        )
+        NeoforgedJarSupport.requireNoEntries(
+                'Unrelated entry contents changed',
+                unrelatedBaseEntries.findAll {
+                    runtimeHashes.containsKey(it)
+                            && baseHashes.get(it) != runtimeHashes.get(it)
+                }
+        )
+
+        Set<String> allEntryNames = new HashSet<>(baseHashes.keySet())
+        allEntryNames.addAll(runtimeHashes.keySet())
+        SortedSet<String> differenceEntries = new TreeSet<>(
+                allEntryNames.findAll { String entryName ->
+                    !baseHashes.containsKey(entryName)
+                            || !runtimeHashes.containsKey(entryName)
+                            || baseHashes.get(entryName)
+                            != runtimeHashes.get(entryName)
+                }
+        )
+        NeoforgedJarSupport.requireNoEntries(
+                'Archive differences outside the surgical allowlist',
+                differenceEntries.findAll {
+                    !NeoforgedJarSupport.isAllowedOverlayEntry(it)
+                }
+        )
+
+        Set<String> expectedClassEntries = compiledClasses.keySet()
+        Set<String> actualClassEntries = runtimeHashes.keySet().findAll {
+            NeoforgedJarSupport.isTaskOwnedClass(it)
+        } as Set<String>
+        NeoforgedJarSupport.requireNoEntries(
+                'Required optimized classes missing from runtime JAR',
+                expectedClassEntries - actualClassEntries
+        )
+        NeoforgedJarSupport.requireNoEntries(
+                'Unexpected optimized-class entries present in runtime JAR',
+                actualClassEntries - expectedClassEntries
+        )
+        NeoforgedJarSupport.requireNoEntries(
+                'Packaged optimized classes do not match freshly compiled output',
+                expectedClassEntries.findAll {
+                    runtimeHashes.get(it)
+                            != NeoforgedJarSupport.sha256(compiledClasses.get(it))
+                }
+        )
+        int structureClassCount = runtimeHashes.keySet().count {
+            it == NeoforgedJarSupport.STRUCTURE_CLASS
+        }
+        if (structureClassCount != 1) {
+            throw NeoforgedJarSupport.failure(
+                    'Expected exactly one effective '
+                            + NeoforgedJarSupport.STRUCTURE_CLASS + ', found '
+                            + structureClassCount
+            )
+        }
+
+        String expectedMetadataHash = NeoforgedJarSupport.sha256(renderedMetadata)
+        if (runtimeHashes.get(NeoforgedJarSupport.MOD_METADATA_ENTRY)
+                != expectedMetadataHash) {
+            throw NeoforgedJarSupport.failure(
+                    'Packaged NeoForge metadata does not match the rendered canonical template.'
+            )
+        }
+        String baseMetadata = NeoforgedJarSupport.readEntryText(
+                base,
+                NeoforgedJarSupport.MOD_METADATA_ENTRY
+        )
+        String runtimeMetadata = NeoforgedJarSupport.readEntryText(
+                runtimeJar,
+                NeoforgedJarSupport.MOD_METADATA_ENTRY
+        )
+        NeoforgedJarSupport.requireMetadataValue(
+                runtimeMetadata, 'modId', NeoforgedJarSupport.EXPECTED_MOD_ID
+        )
+        NeoforgedJarSupport.requireMetadataValue(
+                runtimeMetadata,
+                'displayName',
+                NeoforgedJarSupport.EXPECTED_DISPLAY_NAME
+        )
+        NeoforgedJarSupport.requireMetadataValue(
+                runtimeMetadata, 'version', NeoforgedJarSupport.EXPECTED_VERSION
+        )
+        List<String> runtimeAuthors =
+                NeoforgedJarSupport.metadataField(runtimeMetadata, 'authors')
+                        .split(',')
+                        .collect { it.trim() }
+        if (runtimeAuthors != NeoforgedJarSupport.EXPECTED_AUTHORS) {
+            throw NeoforgedJarSupport.failure(
+                    'Runtime metadata credits are incomplete: '
+                            + runtimeAuthors.join(', ')
+            )
+        }
+        if (NeoforgedJarSupport.normalizedDependencySection(baseMetadata)
+                != NeoforgedJarSupport.normalizedDependencySection(runtimeMetadata)) {
+            throw NeoforgedJarSupport.failure(
+                    'NeoForge dependency declarations changed during metadata branding.'
+            )
+        }
+
+        String fearJsonText = NeoforgedJarSupport.readEntryText(
+                runtimeJar,
+                NeoforgedJarSupport.FEAR_JSON
+        )
+        int fearJsonCount = runtimeHashes.keySet().count {
+            it == NeoforgedJarSupport.FEAR_JSON
+        }
+        if (fearJsonCount != 1) {
+            throw NeoforgedJarSupport.failure(
+                    'Expected exactly one ' + NeoforgedJarSupport.FEAR_JSON
+                            + ', found ' + fearJsonCount
+            )
+        }
+        Object fearJson = new JsonSlurper().parseText(fearJsonText)
+        if (fearJson.entityClass != NeoforgedJarSupport.EXPECTED_FEAR_ENTITY) {
+            throw NeoforgedJarSupport.failure(
+                    NeoforgedJarSupport.FEAR_JSON + ' references '
+                            + fearJson.entityClass + ' instead of '
+                            + NeoforgedJarSupport.EXPECTED_FEAR_ENTITY
+            )
+        }
+        if (!runtimeHashes.containsKey(NeoforgedJarSupport.FEAR_ENTITY_CLASS)) {
+            throw NeoforgedJarSupport.failure(
+                    'Runtime JAR is missing '
+                            + NeoforgedJarSupport.FEAR_ENTITY_CLASS
+            )
+        }
+        List<String> forbiddenFearReferences =
+                NeoforgedJarSupport.creatureJsonsReferencing(
+                        runtimeJar,
+                        NeoforgedJarSupport.FORBIDDEN_FEAR_ENTITY
+                )
+        NeoforgedJarSupport.requireNoEntries(
+                'Creature JSON files still reference obsolete EntityFear',
+                forbiddenFearReferences
+        )
+
+        List<String> testClasses =
+                NeoforgedJarSupport.testClassEntries(runtimeHashes.keySet())
+        NeoforgedJarSupport.requireNoEntries(
+                'Test classes must not be packaged',
+                testClasses
+        )
+        List<String> signatureEntries =
+                NeoforgedJarSupport.signatureEntries(runtimeHashes.keySet())
+        NeoforgedJarSupport.requireNoEntries(
+                'Runtime JAR contains stale signature entries',
+                signatureEntries
+        )
+        List<String> legacyBrandingMatches =
+                NeoforgedJarSupport.legacyPrivateBrandingMatches(runtimeJar)
+        NeoforgedJarSupport.requireNoEntries(
+                'Runtime JAR contains legacy private-project branding',
+                legacyBrandingMatches
+        )
+
+        List<String> metadataCandidates = [
+                'META-INF/neoforge.mods.toml',
+                'META-INF/mods.toml'
+        ]
+        List<String> baseMetadataEntries = metadataCandidates.findAll {
+            baseHashes.containsKey(it)
+        }
+        List<String> runtimeMetadataEntries = metadataCandidates.findAll {
+            runtimeHashes.containsKey(it)
+        }
+        if (baseMetadataEntries != runtimeMetadataEntries) {
+            throw NeoforgedJarSupport.failure('Metadata entry set changed unexpectedly.')
+        }
+        SortedSet<String> baseOptionalDependencies =
+                NeoforgedJarSupport.optionalModDependencies(
+                        base,
+                        baseMetadataEntries
+                )
+        SortedSet<String> runtimeOptionalDependencies =
+                NeoforgedJarSupport.optionalModDependencies(
+                        runtimeJar,
+                        runtimeMetadataEntries
+                )
+        if (baseOptionalDependencies != runtimeOptionalDependencies) {
+            throw NeoforgedJarSupport.failure(
+                    'Optional-mod dependency declarations changed: base='
+                            + baseOptionalDependencies + ', runtime='
+                            + runtimeOptionalDependencies
+            )
+        }
+
+        List<String> otherRuntimeJars = runtimeJar.getParentFile()
+                .listFiles()
+                .findAll { File candidate ->
+                    candidate.isFile()
+                            && candidate.getName()
+                            .toLowerCase(Locale.ROOT).endsWith('.jar')
+                            && candidate.getCanonicalFile() != runtimeJar
+                }
+                .collect { it.getName() }
+                .sort()
+        NeoforgedJarSupport.requireNoEntries(
+                'build/libs contains another JAR that could be mistaken for the runtime release',
+                otherRuntimeJars
+        )
+
+        SortedSet<String> allowedOverlayEntries = new TreeSet<>()
+        allowedOverlayEntries.add(NeoforgedJarSupport.MOD_METADATA_ENTRY)
+        allowedOverlayEntries.addAll(actualClassEntries)
+        List<String> reportLines = [
+                'RESULT=PASS',
+                'ExpectedArtifactName=' + NeoforgedJarSupport.EXPECTED_ARTIFACT_NAME,
+                'BaseJar=' + base,
+                'BaseSizeBytes=' + base.length(),
+                'BaseSHA256=' + NeoforgedJarSupport.sha256(base),
+                'FinalJar=' + runtimeJar,
+                'FinalSizeBytes=' + runtimeJar.length(),
+                'FinalSHA256=' + NeoforgedJarSupport.sha256(runtimeJar),
+                'BaseEntries=' + baseHashes.size(),
+                'FinalEntries=' + runtimeHashes.size(),
+                'UnrelatedEntriesVerified=' + unrelatedBaseEntries.size(),
+                'AllowedOverlayEntries=' + allowedOverlayEntries.join(','),
+                'ActualDifferenceEntries=' + differenceEntries.join(','),
+                'OptimizedClassEntries='
+                        + actualClassEntries.toList().sort().join(','),
+                'MetadataEntry=' + NeoforgedJarSupport.MOD_METADATA_ENTRY,
+                'MetadataSHA256=' + expectedMetadataHash,
+                'MetadataOverlayVerified=true',
+                'MetadataDependencyParity=true',
+                'DisplayName=' + NeoforgedJarSupport.EXPECTED_DISPLAY_NAME,
+                'ModId=' + NeoforgedJarSupport.EXPECTED_MOD_ID,
+                'Version=' + NeoforgedJarSupport.EXPECTED_VERSION,
+                'Authors=' + runtimeAuthors.join(', '),
+                'FearJsonCount=' + fearJsonCount,
+                'FearJsonEntityClass=' + fearJson.entityClass,
+                'FearEntityClassPresent=true',
+                'ForbiddenEntityFearReferences=0',
+                'StructureSpawnLocationCount=' + structureClassCount,
+                'OptimizedClassesMatchCompiledOutput=true',
+                'TestClasses=0',
+                'DuplicateEntries=0',
+                'SignatureEntries=0',
+                'LegacyPrivateBrandingMatches=0',
+                'OtherRuntimeJars=0',
+                'BaseOptionalModDependencies=' + baseOptionalDependencies.join(','),
+                'OptionalModDependenciesAdded=0',
+                'OptionalModDependenciesRemoved=0'
+        ]
+        actualClassEntries.toList().sort().each { String entryName ->
+            reportLines.add(
+                    'OptimizedClassSHA256[' + entryName + ']='
+                            + runtimeHashes.get(entryName)
+            )
+        }
+        File report = verificationReport.get().asFile
+        Files.createDirectories(report.toPath().getParent())
+        Files.writeString(
+                report.toPath(),
+                reportLines.join(System.lineSeparator())
+                        + System.lineSeparator(),
+                StandardCharsets.UTF_8
+        )
+        logger.lifecycle(reportLines.join(System.lineSeparator()))
+    }
+}
+
+def upstreamLycanitesJarPath = providers
+        .gradleProperty('upstreamLycanitesJar')
+        .orElse('')
+
+def renderedNeoforgeMetadata = layout.buildDirectory.file(
+        'generated/sources/modMetadata/META-INF/neoforge.mods.toml'
+)
+
+def neoforgedJarTask = tasks.register('neoforgedJar', NeoforgedJarTask) {
+    group = 'build'
+    description = (
+            'Builds the canonical lycanitesmobs-neoforged-0.0.1.jar from an '
+                    + 'explicit known-good upstream JAR. Use '
+                    + '-PupstreamLycanitesJar=<absolute path>.'
+    )
+    dependsOn tasks.named('compileJava')
+    dependsOn tasks.named('generateModMetadata')
+    upstreamJarPath.set(upstreamLycanitesJarPath)
+    compiledClassesDirectory.set(
+            tasks.named('compileJava', JavaCompile).flatMap {
+                it.destinationDirectory
+            }
+    )
+    metadataFile.set(renderedNeoforgeMetadata)
+    outputJar.set(
+            layout.buildDirectory.file(
+                    'libs/' + NeoforgedJarSupport.EXPECTED_ARTIFACT_NAME
+            )
+    )
+    outputs.upToDateWhen { false }
+}
+
+tasks.register('verifyNeoforgedJar', VerifyNeoforgedJarTask) {
+    group = 'verification'
+    description = (
+            'Verifies the canonical surgical runtime JAR, exact metadata, '
+                    + 'and complete unrelated-entry SHA-256 parity.'
+    )
+    dependsOn neoforgedJarTask
+    upstreamJarPath.set(upstreamLycanitesJarPath)
+    compiledClassesDirectory.set(
+            tasks.named('compileJava', JavaCompile).flatMap {
+                it.destinationDirectory
+            }
+    )
+    metadataFile.set(renderedNeoforgeMetadata)
+    runtimeJarPath.set(
+            neoforgedJarTask.flatMap { it.outputJar }.map {
+                it.asFile.absolutePath
+            }
+    )
+    verificationReport.set(
+            layout.buildDirectory.file(
+                    'reports/neoforged-jar-verification.txt'
+            )
+    )
+    outputs.upToDateWhen { false }
+}

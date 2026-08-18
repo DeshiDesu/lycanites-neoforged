@@ -31,3 +31,11 @@ forge*changelog.txt
 
 # logs
 logs/*
+
+# Local implementation plans (keep only the directory marker)
+/docs/plans/*
+!/docs/plans/.gitkeep
+
+# Local known-good upstream binary inputs
+/lycanitesmobs-0.0.1.jar
+/local-artifacts/
